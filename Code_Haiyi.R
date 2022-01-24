@@ -8,6 +8,11 @@ set.seed(1234)
 ##1)
 Alter <- c(rnorm(100, mean = 25, sd = 2))
 
+Alter <- round(Alter,0)
+# Ich glaube, Das Alter abgerundet werden muss.
+
+
+
 ##2)
 # S:Staistik  D:Data Science M:Mathe I:Informatik
 SF <- c(sample(c("S", "D", "M", "I"), 100, replace=TRUE, prob=c(0.35, 0.35, 0.2, 0.1)))
