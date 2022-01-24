@@ -5,20 +5,14 @@ set.seed(1)
 # (1)Alter:
 Alter <- rnorm(100, mean = 25, sd = 2)
 Alter <- round(Alter,0)
+
 # (2)Studienfach:
 fach <- c("Statistik", "Data Science", "Mathe", "Informatik") 
-
 Studienfach <- sample(fach, 100, replace=TRUE, prob=c(0.3, 0.3, 0.25, 0.15))
 
 # (3)Interesse an Mathematik:
 interesse1 <- factor(1:7, levels = 1:7, ordered = TRUE)
 Interesse_Math <- sample(interesse1, 100, replace=TRUE)
-
-
-
-# Zusammenhang wird nicht berücksichtigt. Du kannst mein Code kucken.
-
-
 
 # (4)Interesse an Programmieren:
 interesse2 <- factor(1:7, levels = 1:7, ordered = TRUE)
