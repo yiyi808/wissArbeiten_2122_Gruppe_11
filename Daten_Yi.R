@@ -10,6 +10,11 @@ Alter <- round(Alter,0)
 fach <- c("Statistik", "Data Science", "Mathe", "Informatik") 
 Studienfach <- sample(fach, 100, replace=TRUE, prob=c(0.3, 0.3, 0.25, 0.15))
 
+
+# Zusammenhang wird nicht berücksichtigt. Du kannst mein Code kucken.
+
+
+
 # (3)Interesse an Mathematik:
 interesse1 <- factor(1:7, levels = 1:7, ordered = TRUE)
 Interesse_Math <- sample(interesse1, 100, replace=TRUE)
