@@ -10,7 +10,6 @@ Alter <- round(Alter,0)
 fach <- c("Statistik", "Data Science", "Mathe", "Informatik") 
 Studienfach <- sample(fach, 100, replace=TRUE, prob=c(0.3, 0.3, 0.25, 0.15))
 
-df <- data.frame(Alter, Studienfach)
 # (3)Interesse an Mathematik:
 interesse1 <- factor(1:7, levels = 1:7, ordered = TRUE)
 # Mathematik 
