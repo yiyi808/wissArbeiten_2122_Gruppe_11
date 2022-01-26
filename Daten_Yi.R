@@ -40,6 +40,8 @@ df$Mathe_LK[df$Studienfach == c("Statistik")] <-
   ifelse((as.numeric(df$Interesse_Math[df$Studienfach == c("Statistik")]) - as.numeric(df$Interesse_Prog[df$Studienfach == c("Statistik")])) >= "3", 1, 0)
 df$Mathe_LK[df$Studienfach == c("Data Science")] <- 
   ifelse((as.numeric(df$Interesse_Math[df$Studienfach == c("Data Science")]) - as.numeric(df$Interesse_Prog[df$Studienfach == c("Data Science")])) >= "3", 1, 0)
+df$Mathe_LK
+# 1 <- "Ja", 0 <- "Nein"
 
 df
 setwd("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11")
