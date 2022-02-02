@@ -7,9 +7,9 @@
 #factor(x = character(), levels, labels = levels, ordered = is.ordered(x))
 #summary()
 ##c)
-#chisq.test(x1,x2)
+#chisq.test(x1,x2) 
 ##d)
-#Cochran-Mantel-Haenszelø®∑ΩºÏ—È
+#Cochran-Mantel-Haenszel Test
 #cmh.test()
 ##e)
 #factor_daten<- factor(daten, order = TRUE, levels =c('niedrig', 'mittel', 'hoch')))
@@ -18,3 +18,4 @@
 #boxplot()
 #hist()
 #barplot()
+#ggplot()
