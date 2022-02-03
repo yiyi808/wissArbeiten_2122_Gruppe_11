@@ -231,8 +231,5 @@ E <- function(x){
 
 
 #f)
-F <- function(x,y){
- boxplot(x,y) 
- plot(x,y)
-}
+
  
