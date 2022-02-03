@@ -73,3 +73,40 @@ str(df)
 setwd("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11")
 write.csv(x = df,file = "Daten_Yi.csv")
 read.csv("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11/Daten_Yi.csv")
+
+
+##3)
+IM <- c(sample(rep(1:7,1), 100, replace=TRUE))
+data <- data_frame(Alter, SF, IM)
+# Mathematik 
+# Die meisten Menschen, die Mathematik studieren, interessieren sich dafür, daher liegt der Wert bei 6,7
+data$IM[data$SF == c("M")] <- c(sample(c(6,7), length(data$IM[data$SF == c("M")]), replace=TRUE))
+data
+
+##4)
+IP <- sample(rep(1:7,1), 100, replace=TRUE)
+data <- cbind(data, IP)
+# Informatik 
+# Die meisten Menschen, die Informatik studieren, interessieren sich dafür, daher liegt der Wert bei 6,7
+data$IP[data$SF == c("I")] <- c(sample(c(6,7), length(data$IP[data$SF == c("I")]), replace=TRUE))
+# Data Science 
+# Die meisten Menschen, die Data Scuence studieren, interessieren sich dafür, daher liegt der Wert bei 4,5,6,7
+data$IP[data$SF == c("D")] <- c(sample(c(4,5,6,7), length(data$IP[data$SF == c("D")]), replace=TRUE))
+
+##5)
+MK <- sample(c("Ja", "Nein"), 100, replace=TRUE)
+data <- cbind(data, MK)
+# Zusammenhänge mit dem Fach Mathematik
+data$MK[data$SF == c("M")] <- c(sample(c("Ja", "Nein"), length(data$MK[data$SF == c("M")]), replace=TRUE, prob=c(0.8, 0.2)))
+# data$MK[data$SF == c("M")] <- c(rep("Ja",length(data$MK[data$SF == c("M")])))
+
+# Zusammenhang mit Interesse an Mathematik
+data$MK[data$IM == 7] <- c(rep("Ja",length(data$MK[data$IM == 7])))
+
+# Zusammenhang mit Programmierungsinteressen
+data$MK[data$IP == 7] <- c(rep("Nein",length(data$MK[data$IP == 7])))
+
+data
+
+
+
