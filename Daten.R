@@ -109,5 +109,5 @@ df$Mathe_LK[df$Studienfach == c("Data Science")] <-
 df
 str(df)
 setwd("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11")
-write.csv(x = df,file = "Daten_Yi.csv")
-read.csv("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11/Daten_Yi.csv")
+write.csv(x = df,file = "Daten.csv")
+read.csv("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
