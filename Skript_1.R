@@ -194,8 +194,14 @@ ggplot()
 ###################################
 # str()
 #a)&b)
+###Interne Funktionen
+mod <- function(x) {
+     uniqv <- unique(x)
+     uniqv[which.max(tabulate(match(x, uniqv)))]
+   }
 
 A <- function(x){
+  mod()
   summary()
 }
 
