@@ -48,7 +48,7 @@ df$Interesse_Math[df$Studienfach == c("Data Science")] <- sample(IM, length(df$I
 # Je geringer das Interesse an Mathematik ist, desto höher ist die Wahrscheinlichkeit, Informationen zu studieren.
 # Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.9, 0.8, 0.4, 0.3, 0.2, 0.1 und 0.05.
 df$Interesse_Math[df$Studienfach == c("Informatik")] <- sample(IM, length(df$Interesse_Math[df$Studienfach == c("Informatik")]), prob = c(0.9, 0.8, 0.4, 0.3, 0.2, 0.1, 0.05), replace=TRUE)
-
+df$Interesse_Math <- factor(df$Interesse_Prog, levels = 1:7, order = TRUE)
 
 
 ## (4) Interesse an Programmieren:
@@ -80,7 +80,7 @@ df$Interesse_Prog[df$Studienfach == c("Data Science")] <- sample(IM, length(df$I
 # Je geringer das Interesse an Programmierung, desto geringer ist die Wahrscheinlichkeit, Informatik zu studieren.
 # Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.3, 0.4, 0.8 und 0.9.
 df$Interesse_Prog[df$Studienfach == c("Informatik")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Informatik")]), prob = c(0.05, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9), replace=TRUE)
-
+df$Interesse_Prog <- factor(df$Interesse_Prog, levels = 1:7, order = TRUE)
 
 
 ## (5) Mathe-LK (ja/nein):
@@ -110,4 +110,5 @@ df
 str(df)
 setwd("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11")
 write.csv(x = df,file = "Daten.csv")
+
 read.csv("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
