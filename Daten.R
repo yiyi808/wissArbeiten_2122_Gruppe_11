@@ -1,48 +1,93 @@
-## Aufgabenstellung 3.Teilleistung Gruppenarbeit/GitHub
-## Teil 1 
-## Haiyi Rong & Yi Sun
+### Aufgabenstellung 3.Teilleistung Gruppenarbeit/GitHub
+### Teil 1 
+### Haiyi Rong & Yi Sun
 
 # Die beiden R-Codes sind in diesem Dokument zusammengefasst.
-# In (3), (4), (5) haben wir verschiedenen Idee, es muss noch diskutiert werden..
 
 
 set.seed(1)
-# (1) Alter:
+
+## (1) Alter:
 Alter <- rnorm(100, mean = 25, sd = 2)
 Alter <- round(Alter,0)
 
 
-# (2) Studienfach:
+
+## (2) Studienfach:
 fach <- c("Statistik", "Data Science", "Mathe", "Informatik") 
-Studienfach <- sample(fach, 100, replace=TRUE, prob=c(0.3, 0.3, 0.25, 0.15))
+Studienfach <- sample(fach, 100, replace=TRUE, prob=c(0.35, 0.35, 0.2, 0.1))
 
 df <- data.frame(Alter, Studienfach)
 
 
-# (3) Interesse an Mathematik*:
 
-############### Yi:
-interesse1 <- factor(1:7, levels = 1:7, ordered = TRUE)
-# Mathematik 
-# Die meisten Menschen, die Mathematik studieren, interessieren sich dafür, daher liegt der Wert bei 5,6,7; 
-# Aber es ist auch möglich, dass die Studenten, die Mathematik studieren, nicht auf Mathematik interessieren.
-# Ich glaube die Wahrscheinlichkeit von der Wert 1:4 klein ist.
-df$Interesse_Math <- sample(interesse1, 100 , prob = c(0.1, 0.2, 0.2, 0.3, 0.6, 0.7, 0.8), replace=TRUE)
+## (3) Interesse an Mathematik:
+IM <- factor(1:7, levels = 1:7, ordered = TRUE)
+df$Interesse_Math <- sample(IM, 100, replace = TRUE)
+
+# Annahme：
+# *Ausnahmen können existieren.
+# a) Studienfach Mathe:
+# Die meisten Menschen, die Mathe studieren, haben ein großes Interesse an Mathematik.
+# Je geringer das Interesse an Mathematik, desto geringer ist die Wahrscheinlichkeit, Mathe zu studieren.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.3, 0.4, 0.8 und 0.9.
+df$Interesse_Math[df$Studienfach == c("Mathe")] <- sample(IM, length(df$Interesse_Math[df$Studienfach == c("Mathe")]), prob = c(0.05, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9), replace=TRUE)
+
+# b) Studienfach Statistik:
+# Die meisten Menschen, die Statistik studieren,haben ein relativ großes Interesse an Mathematik.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.9, 0.8, 0.5 und 0.4. 
+df$Interesse_Math[df$Studienfach == c("Statistik")] <- sample(IM, length(df$Interesse_Math[df$Studienfach == c("Statistik")]), prob = c(0.05, 0.1, 0.2, 0.9, 0.8, 0.5, 0.4), replace=TRUE)
+
+# c) Studienfach Data Science:
+# Die meisten Menschen, die Data Science studieren, haben ein relativ großes Interesse an Mathematik.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.9, 0.8, 0.5 und 0.4.
+df$Interesse_Math[df$Studienfach == c("Data Science")] <- sample(IM, length(df$Interesse_Math[df$Studienfach == c("Data Science")]), prob = c(0.05, 0.1, 0.2, 0.9, 0.8, 0.5, 0.4), replace=TRUE)
+
+# d) Studienfach Informatik:
+# Die meisten Menschen, die Informatik studieren, haben nur wenig Interesse am Mathematik.
+# Je geringer das Interesse an Mathematik ist, desto höher ist die Wahrscheinlichkeit, Informationen zu studieren.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.9, 0.8, 0.4, 0.3, 0.2, 0.1 und 0.05.
+df$Interesse_Math[df$Studienfach == c("Informatik")] <- sample(IM, length(df$Interesse_Math[df$Studienfach == c("Informatik")]), prob = c(0.9, 0.8, 0.4, 0.3, 0.2, 0.1, 0.05), replace=TRUE)
 
 
-# (4) Interesse an Programmieren*:
 
-############### Yi:
-# Analog zu Mathe.
-interesse2 <- factor(1:7, levels = 1:7, ordered = TRUE)
-df$Interesse_Prog <- sample(interesse2, 100, prob = c(0.1, 0.2, 0.2, 0.3, 0.6, 0.7, 0.8), replace=TRUE)
+## (4) Interesse an Programmieren:
+
+IP <- factor(rep(1:7,1), levels = 1:7, order = TRUE)
+df$Interesse_Prog <- sample(IP, 100, replace = TRUE)
+
+# Annahme：
+# *Ausnahmen können existieren.
+
+# a) Studienfach Mathe:
+# Die meisten Menschen, die Mathe studieren, haben nur wenig Interesse am Programmierung.
+# Je geringer das Interesse an Programmierung ist, desto höher ist die Wahrscheinlichkeit, Informatik zu studieren.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.9, 0.8, 0.4, 0.3, 0.2, 0.1 und 0.05.
+df$Interesse_Prog[df$Studienfach == c("Mathe")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Mathe")]), prob = c(0.9, 0.8, 0.4, 0.3, 0.2, 0.1, 0.05), replace=TRUE)
+
+# b) Studienfach Statistik:
+# Die meisten Menschen, die Statistik studieren,haben ein relativ großes Interesse an Programmierung.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.9, 0.8, 0.5 und 0.4. 
+df$Interesse_Prog[df$Studienfach == c("Statistik")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Statistik")]), prob = c(0.05, 0.1, 0.2, 0.9, 0.8, 0.5, 0.4), replace=TRUE)
+
+# c) Studienfach Data Science:
+# Die meisten Menschen, die Data Science studieren, haben ein relativ großes Interesse an Programmierung. (Mehr als Statistik)
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.9, 0.8, 0.6 und 0.5.
+df$Interesse_Prog[df$Studienfach == c("Data Science")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Data Science")]), prob = c(0.05, 0.1, 0.2, 0.9, 0.8, 0.6, 0.5), replace=TRUE)
+
+# d) Studienfach Informatik:
+# Die meisten Menschen, die Informatik studieren, haben ein großes Interesse an Programmierung.
+# Je geringer das Interesse an Programmierung, desto geringer ist die Wahrscheinlichkeit, Informatik zu studieren.
+# Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.3, 0.4, 0.8 und 0.9.
+df$Interesse_Prog[df$Studienfach == c("Informatik")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Informatik")]), prob = c(0.05, 0.1, 0.2, 0.3, 0.4, 0.8, 0.9), replace=TRUE)
 
 
-# (5)Mathe-LK (ja/nein)*:
 
-############### Yi:
+## (5) Mathe-LK (ja/nein):
+
 # Annahme: 
-# 1 <- Ja, 0 <- Nein
+# 1 <- Ja, 0 <- Nein 
+# *Ausnahmen können existieren.
 # Dummy-Variable hier erstellen.
 # a) Die Studenten, die ein größeres Interesse an Mathematik haben und die Mathematik studienren,
 #    die in der Schule Mathe-LK hatten.
@@ -66,46 +111,3 @@ str(df)
 setwd("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11")
 write.csv(x = df,file = "Daten_Yi.csv")
 read.csv("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11/Daten_Yi.csv")
-
-
-##3)&4)Rong
-
-set.seed(1234)
-
-##1)
-Alter <- c(rnorm(100, mean = 25, sd = 2))
-Alter <- round(Alter,0)
-Alter
-
-
-##2)
-# S:Staistik  D:Data Science M:Mathe I:Informatik
-SF <- c(sample(c("S", "D", "M", "I"), 100, replace=TRUE, prob=c(0.35, 0.35, 0.2, 0.1)))
-
-
-##3)
-IM <- c(sample(rep(1:7,1), 100, replace=TRUE))
-IM <- as.factor(IM)
-data <- data_frame(Alter, SF, IM)
-# Mathematik 
-# Die meisten Menschen, die Mathematik studieren, interessieren sich dafür, daher liegt der Wert bei 6,7
-data$IM[data$SF == c("M")] <- c(sample(c(5,6,7), length(data$IM[data$SF == c("M")]), replace=TRUE))
-#
-data$IM[data$SF == c("S")] <- c(sample(c(3,4,5,6), length(data$IM[data$SF == c("S")]), replace=TRUE))
-data$IM[data$SF == c("D")] <- c(sample(c(2,3,4,5), length(data$IM[data$SF == c("D")]), replace=TRUE))
-data$IM[data$SF == c("I")] <- c(sample(c(1,2,3,4), length(data$IM[data$SF == c("I")]), replace=TRUE))
-
-##4)
-IP <- sample(rep(1:7,1), 100, replace=TRUE)
-IP <- as.factor(IP)
-data <- cbind(data, IP)
-# Informatik 
-# Die meisten Menschen, die Informatik studieren, interessieren sich dafür, daher liegt der Wert bei 6,7
-data$IP[data$SF == c("I")] <- c(sample(c(6,7), length(data$IP[data$SF == c("I")]), replace=TRUE))
-# Data Science 
-# Die meisten Menschen, die Data Scuence studieren, interessieren sich dafür, daher liegt der Wert bei 4,5,6,7
-data$IP[data$SF == c("D")] <- c(sample(c(4,5,6,7), length(data$IP[data$SF == c("D")]), replace=TRUE))
-#
-data$IP[data$SF == c("S")] <- c(sample(c(3,4,5,6), length(data$IP[data$SF == c("S")]), replace=TRUE))
-#
-data$IP[data$SF == c("M")] <- c(sample(c(1,2,3,4), length(data$IP[data$SF == c("M")]), replace=TRUE))
