@@ -118,13 +118,11 @@ f1<- function(x, na.omit=FALSE){
   }
   
   return(c(n=n, mean=m,var=var,s=s, skew=skew, kurtosis=kurt,min=min,max=max,quantile=q,median=md,modul=mod(x))) } 
-f1(mtcars$cyl)
 
 f2 <- function(x){
-  a <- levels(x)
-  sum <- table(x)
-  h <- prop.table(table(x))
-  return(c(Art=a,Anzahl=sum,häufig=h))
+ x <- as.factor(x)
+  summary(x)
+   return(x)
 }
 
 f3 <- function(x,y){
