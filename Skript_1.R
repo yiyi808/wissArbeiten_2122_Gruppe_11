@@ -220,8 +220,10 @@ D <- function(x, y){
 }
 
 #e)
+###Interne Funktionen
+intern <- function(x) min(x):max(x)
 f5 <- function(x){
-  Q <- quantile(1:7, probs = c(1/3, 2/3), na.rm = TRUE)
+  Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
   k[x <= Q[2]] <- "niedrig"
