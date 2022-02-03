@@ -217,6 +217,10 @@ D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
 
+D1 <- function(x, y, z) {
+  wilcox.test(y~x,data = z)
+}
+
 #e)
 f5 <- function(x){
   Q <- quantile(1:7, probs = c(1/3, 2/3), na.rm = TRUE)
