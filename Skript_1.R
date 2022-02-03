@@ -226,9 +226,8 @@ f5 <- function(x){
   k[Q[1] <= x & x < Q[2]] <- "mittel"
   k[x >= Q[2]] <- "hoch"
   k[is.na(x)] <- NA
-  
-  T <- table(k)
-  return(T)}
+  return(k)
+  }
 
 
 #f)
