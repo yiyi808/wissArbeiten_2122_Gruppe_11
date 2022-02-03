@@ -29,8 +29,6 @@ interesse1 <- factor(1:7, levels = 1:7, ordered = TRUE)
 # Ich glaube die Wahrscheinlichkeit von der Wert 1:4 klein ist.
 df$Interesse_Math <- sample(interesse1, 100 , prob = c(0.1, 0.2, 0.2, 0.3, 0.6, 0.7, 0.8), replace=TRUE)
 
-############### Haiyi:
-
 
 # (4) Interesse an Programmieren*:
 
@@ -38,8 +36,6 @@ df$Interesse_Math <- sample(interesse1, 100 , prob = c(0.1, 0.2, 0.2, 0.3, 0.6, 
 # Analog zu Mathe.
 interesse2 <- factor(1:7, levels = 1:7, ordered = TRUE)
 df$Interesse_Prog <- sample(interesse2, 100, prob = c(0.1, 0.2, 0.2, 0.3, 0.6, 0.7, 0.8), replace=TRUE)
-
-############### Haiyi: 
 
 
 # (5)Mathe-LK (ja/nein)*:
@@ -64,15 +60,12 @@ df$Mathe_LK[df$Studienfach == c("Statistik")] <-
 df$Mathe_LK[df$Studienfach == c("Data Science")] <- 
   ifelse((as.numeric(df$Interesse_Math[df$Studienfach == c("Data Science")]) - as.numeric(df$Interesse_Prog[df$Studienfach == c("Data Science")])) >= "3", 1, 0)
 
+
 df
 str(df)
 setwd("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11")
 write.csv(x = df,file = "Daten_Yi.csv")
 read.csv("/Users/is/Documents/GitHub/wissArbeiten_2122_Gruppe_11/Daten_Yi.csv")
-
-
-
-############### Haiyi: 
 
 
 ##3)
