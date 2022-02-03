@@ -1,21 +1,39 @@
 #Aufgabe 3
 ##a)
-#summary()
-#library(psych)
-#describe()
+A <- function(x){
+  summary(x) 
+}
+#order
+library(psych)
+A <- function(x){
+  describe(x) 
+}
+
 ##b)
-#factor(x = character(), levels, labels = levels, ordered = is.ordered(x))
-#summary()
+B<-function(x){factor(x = character(), levels, labels = levels, ordered = is.ordered(x))
+ return(summary(x))}
+
 ##c)
-#chisq.test(x1,x2) 
+
+C<-function(x1,x2){
+  t<-table(x1,x2)
+  return(chisq.test(t))}
+ 
+
 ##d)
 #Cochran-Mantel-Haenszel Test
-#cmh.test()
+A <- function(x){
+  cmh.test(x1,x2) 
+}
+
+
+
 ##e)
-#factor_daten<- factor(daten, order = TRUE, levels =c('niedrig', 'mittel', 'hoch')))
-#summary(factor_daten)
+E<-function(x){y<- factor(x, order = TRUE, levels =c('niedrig', 'mittel', 'hoch'))
+summary(y)}
+
 ##f)
-#boxplot()
-#hist()
-#barplot()
-#ggplot()
+boxplot()
+hist()
+barplot()
+ggplot()
