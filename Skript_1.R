@@ -174,11 +174,7 @@ C<-function(x1,x2){
   return(chisq.test(t))}
  
 
-##d)
-#Cochran-Mantel-Haenszel Test
-A <- function(x){
-  cmh.test(x1,x2) 
-}
+##d
 
 
 
@@ -218,7 +214,7 @@ D <- function(x, y){
 }
 
 #e)
-E <- function(x){
+f5 <- function(x){
   Q <- quantile(1:7, probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
@@ -231,5 +227,3 @@ E <- function(x){
 
 
 #f)
-
- 
