@@ -16,7 +16,6 @@ B <- function(x){
 
 #c)
 library(DescTools)
-
 C <- function(x,y){
   tab <- table(x,y)
   Assocs(tab)
@@ -190,3 +189,33 @@ boxplot()
 hist()
 barplot()
 ggplot()
+
+
+
+###################################
+###################################
+# str()
+#a)&b)
+
+A <- function(x){
+  summary()
+}
+
+
+#c)
+library(DescTools)
+C <- function(x,y){
+  tab <- table(x,y)
+  Assocs(tab)
+  chisq.test(x,y)
+}
+
+#d)
+D <- function(x, y){
+  cor.test(x, y, method=c("pearson"))
+}
+
+#e)
+
+
+#f)
