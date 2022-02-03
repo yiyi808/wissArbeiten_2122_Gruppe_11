@@ -27,18 +27,19 @@ f_2 <- function(x){
 }
 
 # (c)
-tab <- table(dat[,5], dat[,6])
-mosaicplot(tab)
-plot(dat$Species ~ dat$Levels)
-f3 <- function(x, y) plot(x,y)
+f3 <- function(x, y) { 
+  t <- table(x,y)
+  return(chisq.test(t))
+  }
 
 # (d)
-
 f4 <- function(x, y) cor.test(x, y, method=c("pearson"))
 
-plot(iris[,1], iris[,7])
 # (e)
+
 # (f)
+library(corrplot)
+f6 <- function(x) 
 
 # Die Daten wird nur verwendet, um zu prüfen, ob die Funktionen funktionieren.
 set.seed(123)
@@ -57,3 +58,5 @@ f2(dat)
 f_2(dat)
 f3(dat[,5], dat[,6])
 f4(dat[,1], dat[,8])
+res <- dat[,c(5,6,5)]
+
