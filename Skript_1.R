@@ -218,6 +218,17 @@ D <- function(x, y){
 }
 
 #e)
+f5 <- function(x){
+  Q <- quantile(1:7, probs = c(1/3, 2/3), na.rm = TRUE)
+  # Klasseneinteilung
+  k<- numeric(length(x))
+  k[x <= Q[2]] <- "niedrig"
+  k[Q[1] <= x & x < Q[2]] <- "mittel"
+  k[x >= Q[2]] <- "hoch"
+  k[is.na(x)] <- NA
+  
+  T <- table(k)
+  return(T)}
 
 
 #f)
