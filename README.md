@@ -1,5 +1,5 @@
-Dieses Branch enthaelt RSkripts für Daten.
+Dieses Branch enthaelt Teil_4 RSkripts für Daten Analysis.
 
-Es wurde von Haiyi Rong und Yi Sun erstellt.
+Es wurde von Jinzhen Li und Xinyi Jing erstellt.
 
-Die anderen Gruppenmitglieder sollten die Daten nicht lesen, bevor sie die Analyse abgeschlossen haben.
+
