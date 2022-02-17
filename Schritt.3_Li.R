@@ -43,12 +43,13 @@ f4 <- function(x,y){
 }
 
 f5 <- function(x){
-  Q <- quantile(x, probs = c(1/3, 2/3), na.rm = TRUE)
+  Q <- quantile(1:7, probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
   k[x <= Q[2]] <- "niedrig"
   k[Q[1] <= x & x < Q[2]] <- "mittel"
   k[x >= Q[2]] <- "hoch"
   k[is.na(x)] <- NA
-  Tafel <- table(k, x)
-  Tafel}
+  
+  T <- table(k)
+  return(T)}
