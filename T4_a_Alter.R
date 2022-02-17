@@ -19,3 +19,5 @@ A(Daten$Alter)
 # Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 # 21.00   24.00   25.00   25.23   26.00   30.00 
 
+Alter<-Daten$Alter
+Boxplot(Alter)
