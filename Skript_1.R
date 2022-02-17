@@ -11,7 +11,7 @@ mod <- function(x) {
 
 A <- function(x){
   print(mod(x))
-  print(summary())
+  print(summary(x))
 }
 
 
