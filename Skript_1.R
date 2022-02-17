@@ -10,8 +10,8 @@ mod <- function(x) {
    }
 
 A <- function(x){
-  mod()
-  summary()
+  print(mod(x))
+  print(summary())
 }
 
 
