@@ -31,7 +31,7 @@ A(Alter)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #21.00   24.00   25.00   25.23   26.00   30.00 
 #Das bedeutet, dass die Personen in diesen Daten zwischen 21 und 30 Jahre alt sind. 
-#26-J??hrige sind die meisten.
+#26-Jaehrige sind die meisten.
 boxplot( Alter,border = "red")
 
 
