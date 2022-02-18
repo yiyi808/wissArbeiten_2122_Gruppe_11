@@ -36,8 +36,4 @@ boxplot( Alter,border = "red")
 
 
 
-library(ggplot2)
-ggplot(mpg, 
-       aes(x = Studienfach)) + 
-  geom_bar(position = "stack")
 
