@@ -29,7 +29,7 @@ A(Daten$Alter)
 
 
 A(Alter_ds)
-#25
+#mod 25
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #21.00   24.00   25.00   24.97   26.00   30.00 
 
