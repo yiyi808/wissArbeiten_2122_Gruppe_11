@@ -2,7 +2,7 @@
 ###################################
 ###################################
 # str()
-#a)&b)
+#a)
 ###Interne Funktionen
 mod <- function(x) {
      uniqv <- unique(x)
@@ -14,7 +14,13 @@ A <- function(x){
   print(summary(x))
 }
 
-
+# b
+B <- function(x){
+  a <- levels(x)
+  sum <- table(x)
+  h <- prop.table(table(x))
+  return(c(Art=a,Anzahl=sum,häufig=h))
+}
 #c)
 library(DescTools)
 C <- function(x,y){
