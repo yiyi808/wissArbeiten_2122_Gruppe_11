@@ -52,7 +52,10 @@ ggplot(data = Daten) + geom_boxplot(aes(x = Studienfach, y = Alter,  fill = Stud
 #Anzahl Studienfach
 ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
   geom_bar(stat = "count",position = "dodge")
+ylab("Absolute Haufigkeit")
 
 #Anzahl Mathe_LK
 ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
-  geom_bar(stat = "count",position = "fill")
+  geom_bar(stat = "count",position = "fill")+
+ xlim("ja","Nein")+
+ylab("relative Haufigkeit")
