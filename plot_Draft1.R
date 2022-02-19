@@ -55,6 +55,7 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
 ylab("Absolute Haufigkeit")
 
 #Anzahl Mathe_LK
+Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- 2
 ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
   geom_bar(stat = "count",position = "fill")+
  xlim("ja","Nein")+
