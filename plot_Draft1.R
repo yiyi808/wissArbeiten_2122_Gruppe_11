@@ -71,6 +71,19 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
   ggtitle("Histogramm der Anzahl der Studienfach") +
   theme_ipsum()
 
+######Anzahl Mathe_LK#########
+
+Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- 2
+ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
+  geom_bar(stat = "count",position = "fill")+ylab("relative Häufigkeit")+
+  xlim("ja","nein")+
+  xlab("")+
+  scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
+  ggtitle("") +
+  theme_ipsum()
+
+
+
 intern <- function(x) min(x):max(x)
 f5 <- function(x){
   Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
