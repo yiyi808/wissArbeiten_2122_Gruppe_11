@@ -2,6 +2,8 @@
 library(dplyr)
 library(ggplot2)
 library(DescTools)
+library(hrbrthemes)
+library(viridis)
 #a)
 #Alter
 
