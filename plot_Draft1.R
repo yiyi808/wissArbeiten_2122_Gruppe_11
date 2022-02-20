@@ -61,12 +61,15 @@ ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
     legend.position="none",
     plot.title = element_text(size=11) )
 
-#Anzahl Mathe_LK
-Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- 2
-ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
-  geom_bar(stat = "count",position = "fill")+
- xlim("ja","Nein")+
-ylab("relative Haufigkeit")
+######Anzahl Studienfach#########
+
+ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
+  geom_bar(stat = "count",position = "dodge")+
+  ylab("Absolute Haufigkeit")+
+  xlab("")+
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  ggtitle("Histogramm der Anzahl der Studienfach") +
+  theme_ipsum()
 
 intern <- function(x) min(x):max(x)
 f5 <- function(x){
