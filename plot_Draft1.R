@@ -83,7 +83,7 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
   theme_ipsum()
 
 
-
+###### m&p Interesse######  
 intern <- function(x) min(x):max(x)
 f5 <- function(x){
   Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
@@ -102,10 +102,17 @@ Daten$Skala_p <- f5(Daten$Interesse_Prog)
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
   geom_bar(stat = "count",position="dodge")+
   theme(axis.title.x=element_blank())+
-  ylab("Anzahl")
+  ylab("Anzahl")+
+  xlab("")+
+scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  ggtitle("") +
+  theme_ipsum()
 
 ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   geom_bar(stat = "count",position="dodge")+
   theme(axis.title.x=element_blank())+
-  ylab("Anzahl")
-
+  ylab("Anzahl")+
+  xlab("")+
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  ggtitle("") +
+  theme_ipsum()
