@@ -3,7 +3,7 @@ Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
 View(Daten)
 str(Daten)
 #Gibt es 6 Variablen und Jede Variable hat 100 Werte.
-#Nummer jeder Person£¬Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
+#Nummer jeder PersonÂ£Â¬Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
 Alter<-Daten$Alter
 Studienfach<-Daten$Studienfach 
 #Es gibt vier Studienf??cher:Statisitk ,Data Science, Mathe,Informatik.
@@ -68,10 +68,17 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
 
 #Hier ist eine Histogramm des Anteils der vier studienf??cher an den beiden Wahlm??glichkeiten, 
 #ob sie einen Mathe_LK belegt haben oder nicht.
-ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
-  geom_bar(stat = "count",position = "fill")+
-  xlim("ja","Nein")+
-  ylab("relative Haufigkeit")
+data <- Daten%>% group_by(Studienfach,Mathe_LK)%>%
+  summarise(anzahl=sum(length(Mathe_LK))) 
+data$Mathe_LK[data$Mathe_LK=="0"] <-"nein"
+data$Mathe_LK[data$Mathe_LK=="1"] <- "ja"
+ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
+  geom_bar(stat = "identity",position = "fill")+ylab("relative HÃ¤ufigkeit")+
+  xlab("")+
+  scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
+  ggtitle("") +
+  theme_ipsum()
+
 #Nachdem wir uns die Grafik angesehen haben, haben wir festgestellt, dass unter den Personen, die Mathe_LK genommen haben, 
 #viele Personen Statistiken und Informationen studiert haben und der Gesamtanteil etwa 75 % betr??gt. Jeder machte etwa 35 % aus. 
 #Ein sehr gro??er Teil der Menschen, die keinen Mathe_LK  besucht haben, studieren Data Science and Mathe. 
