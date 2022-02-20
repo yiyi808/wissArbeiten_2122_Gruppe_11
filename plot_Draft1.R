@@ -46,13 +46,20 @@ A(Alter_ma)
 #Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 #24.00   24.00   25.50   25.50   26.75   28.00 
 
-#Alter
-ggplot(data = Daten) + geom_boxplot(aes(x = Studienfach, y = Alter,  fill = Studienfach))
-
-#Anzahl Studienfach
-ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
-  geom_bar(stat = "count",position = "dodge")
-ylab("Absolute Haufigkeit")
+######Alter plot############
+library(hrbrthemes)
+library(viridis)
+Daten%>%
+ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
+  geom_boxplot() +
+  xlab("")+
+  scale_fill_viridis(discrete = TRUE,option = "E" ,alpha=0.6) +
+  ggtitle("Boxplots des Alters nach Studienfach ")+
+  geom_jitter(color="black", size=0.4, alpha=0.9) +
+  theme_ipsum() +
+  theme(
+    legend.position="none",
+    plot.title = element_text(size=11) )
 
 #Anzahl Mathe_LK
 Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- 2
