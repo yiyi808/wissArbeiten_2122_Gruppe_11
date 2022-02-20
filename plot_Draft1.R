@@ -75,10 +75,12 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
 
 ######Anzahl Mathe_LK#########
 
-Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- 2
-ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
-  geom_bar(stat = "count",position = "fill")+ylab("relative Häufigkeit")+
-  xlim("ja","nein")+
+data <- Daten%>% group_by(Studienfach,Mathe_LK)%>%
+  summarise(anzahl=sum(length(Mathe_LK))) 
+data$Mathe_LK[data$Mathe_LK=="0"] <-"nein"
+data$Mathe_LK[data$Mathe_LK=="1"] <- "ja"
+ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
+  geom_bar(stat = "identity",position = "fill")+ylab("relative Häufigkeit")+
   xlab("")+
   scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
   ggtitle("") +
