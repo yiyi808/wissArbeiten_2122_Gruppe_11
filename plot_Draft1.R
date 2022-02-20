@@ -70,7 +70,7 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
   ylab("Absolute Haufigkeit")+
   xlab("")+
   scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
-  ggtitle("Histogramm der Anzahl der Studienfach") +
+  ggtitle("Balkendiagramm  der Studentenzahlen in den vier Studienfaecher") +
   theme_ipsum()
 
 ######Anzahl Mathe_LK#########
