@@ -60,3 +60,29 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Studienfach))+
   geom_bar(stat = "count",position = "fill")+
  xlim("ja","Nein")+
 ylab("relative Haufigkeit")
+
+intern <- function(x) min(x):max(x)
+f5 <- function(x){
+  Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
+  # Klasseneinteilung
+  k<- numeric(length(x))
+  k[x <= Q[2]] <- "niedrig"
+  k[Q[1] <= x & x < Q[2]] <- "mittel"
+  k[x >= Q[2]] <- "hoch"
+  k[is.na(x)] <- NA
+  return(k)
+}
+
+Daten$Skala_m <- f5(Daten$Interesse_Math)
+Daten$Skala_p <- f5(Daten$Interesse_Prog)
+
+ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
+  geom_bar(stat = "count",position="dodge")+
+  theme(axis.title.x=element_blank())+
+  ylab("Anzahl")
+
+ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
+  geom_bar(stat = "count",position="dodge")+
+  theme(axis.title.x=element_blank())+
+  ylab("Anzahl")
+
