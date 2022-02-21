@@ -11,10 +11,10 @@ Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
 View(Daten)
 str(Daten)
 #Gibt es 6 Variablen und Jede Variable hat 100 Werte.
-#Nummer jeder Person£¬Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
+#Nummer jeder Person,Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
 Alter<-Daten$Alter
 Studienfach<-Daten$Studienfach 
-#Es gibt vier Studienf??cher:Statisitk ,Data Science, Mathe,Informatik.
+#Es gibt vier Studienfaecher:Statisitk ,Data Science, Mathe,Informatik.
 Interesse_Math<-Daten$Interesse_Math
 #Interesse_Math haben Sieben Stufen: 1,2,3,4,5,6,7.
 Interesse_Prog<-Daten$Interesse_Prog
@@ -58,7 +58,7 @@ Daten%>%
   theme(
     legend.position="none",
     plot.title = element_text(size=11) )
-#Insgesamt glaube ich nicht, dass es einen gro??en Unterschied in der Altersverteilung der vier Studienf??cher gibt. 
+#Insgesamt glaube ich nicht, dass es einen grossen Unterschied in der Altersverteilung der vier Studienfaecher gibt. 
 #Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
@@ -75,7 +75,7 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
   ylab("Absolute Haufigkeit")+
   xlab("Studienfach")+
   scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
-  ggtitle("Balkendiagramm  der Studentenzahlen in den vier Studienf??cher") +
+  ggtitle("Balkendiagramm  der Studentenzahlen in den vier Studienfaecher") +
   theme_ipsum()
 
 Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- 2
@@ -89,7 +89,7 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
   xlim("ja","Nein")+
   ylab("Absolute Haufigkeit")
 
-<<<<<<< HEAD
+
 
 #Das nachstehende Histogramm zeigt den prozentualen Anteil der Personen in jedem Studienfach,
 #die in der schule Mathe-LK hatte oder nicht.
@@ -106,7 +106,7 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 #Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, 
 #die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
 #Dagegen haben sechzig Prozent der Informatik- und Mathe_Studenten eine Mathe-LK besucht. 
-#Dieser deutliche Unterschied l??sst darauf schlie??en, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
+#Dieser deutliche Unterschied laesst darauf schliessen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
 
 
 ###### Mathe & Programmierung Interesse######  
@@ -147,23 +147,6 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe ") +
   theme_ipsum()
 
-=======
-#Hier ist eine Histogramm des Anteils der vier studienf??cher an den beiden Wahlm??glichkeiten, 
-#ob sie einen Mathe_LK belegt haben oder nicht.
-data <- Daten%>% group_by(Studienfach,Mathe_LK)%>%
-  summarise(anzahl=sum(length(Mathe_LK))) 
-data$Mathe_LK[data$Mathe_LK=="0"] <-"nein"
-data$Mathe_LK[data$Mathe_LK=="1"] <- "ja"
-ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
-  geom_bar(stat = "identity",position = "fill")+ylab("relative Häufigkeit")+
-  xlab("")+
-  scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
-  ggtitle("") +
-  theme_ipsum()
 
-#Nachdem wir uns die Grafik angesehen haben, haben wir festgestellt, dass unter den Personen, die Mathe_LK genommen haben, 
-#viele Personen Statistiken und Informationen studiert haben und der Gesamtanteil etwa 75 % betr??gt. Jeder machte etwa 35 % aus. 
-#Ein sehr gro??er Teil der Menschen, die keinen Mathe_LK  besucht haben, studieren Data Science and Mathe. 
-#Zusammen machen sie mehr als 90 Prozent aus.
->>>>>>> cbde980b5132c85f4abb237ac2daec7ba65a9f80
+
 
