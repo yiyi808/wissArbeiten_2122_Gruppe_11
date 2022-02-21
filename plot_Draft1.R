@@ -135,7 +135,7 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 #Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, 
 #die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
 #Dagegen haben sechzig Prozent der Informatik- und Mathe_Studenten eine Mathe-LK besucht. 
-#Dieser deutliche Unterschied lässt darauf schließen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
+#Dieser deutliche Unterschied laesst darauf schließen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
 
 
 ###### Mathe & Programmierung Interesse######  
