@@ -59,7 +59,7 @@ C(Interesse_Math,Mathe_LK)
 #X-squared = 22.778, df = 6, p-value = 0.0008744
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Interesse_Math und Mathe_LK, 
-#d.h. die Interesse_Math ist nicht unabh??ngig vom Mathe_LK.
+#d.h. die Interesse_Math ist nicht unabhaengig vom Mathe_LK.
 
 
 
@@ -95,3 +95,4 @@ D(Alter,Mathe_LK)
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
 #Der Korrelationskoeffizient betraegt 0,103465.
+
