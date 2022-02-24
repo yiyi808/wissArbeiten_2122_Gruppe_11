@@ -15,6 +15,7 @@ C <- function(x,y){
   
   chisq.test(x,y)
 }
+#########Studienfach  &  Mathe_LK###############
 C(Studienfach,Mathe_LK)
 #Pearson's Chi-squared test
 
@@ -23,6 +24,10 @@ C(Studienfach,Mathe_LK)
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Math_LK, d.h. die Studienfach ist nicht unabhaengig vom Math_LK.
+
+
+
+#########Studienfach  &  Interesse_Math###############
 C(Studienfach,Interesse_Math)
 #Pearson's Chi-squared test
 
@@ -31,6 +36,10 @@ C(Studienfach,Interesse_Math)
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
+
+
+
+#########Studienfach  &  Interesse_Prog###############
 C(Studienfach,Interesse_Prog)
 #Pearson's Chi-squared test
 
@@ -40,6 +49,9 @@ C(Studienfach,Interesse_Prog)
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
 
+
+
+#########Interesse_Math  &  Mathe_LK###############
 C(Interesse_Math,Mathe_LK)
 #Pearson's Chi-squared test
 
@@ -48,6 +60,10 @@ C(Interesse_Math,Mathe_LK)
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Interesse_Math und Mathe_LK, 
 #d.h. die Interesse_Math ist nicht unabh??ngig vom Mathe_LK.
+
+
+
+#########Interesse_Prog  &  Mathe_LK###############
 C(Interesse_Prog,Mathe_LK)
 #Pearson's Chi-squared test
 
@@ -58,6 +74,8 @@ C(Interesse_Prog,Mathe_LK)
 #d.h. die Interesse_Prog ist nicht unabhaengig vom Mathe_LK.
 
 
+
+#########Alter  &  Mathe_LK###############
 D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
@@ -75,4 +93,5 @@ D(Alter,Mathe_LK)
 
 # Da p-value grosse als 0.05 ist,
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
-
+#Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
+#Der Korrelationskoeffizient betr??gt 0,103465.
