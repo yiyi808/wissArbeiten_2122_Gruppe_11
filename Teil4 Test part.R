@@ -94,4 +94,4 @@ D(Alter,Mathe_LK)
 # Da p-value grosse als 0.05 ist,
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
-#Der Korrelationskoeffizient betr??gt 0,103465.
+#Der Korrelationskoeffizient betraegt 0,103465.
