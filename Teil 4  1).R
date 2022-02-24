@@ -11,7 +11,11 @@ Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
 View(Daten)
 str(Daten)
 #Gibt es 6 Variablen und Jede Variable hat 100 Werte.
+<<<<<<< HEAD
 #Nummer jeder Person,Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
+=======
+#Nummer ,Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
+>>>>>>> ef38c6c55d9523e01b5755705f4d8d3df4140a21
 Alter<-Daten$Alter
 Studienfach<-Daten$Studienfach 
 #Es gibt vier Studienfaecher:Statisitk ,Data Science, Mathe,Informatik.
@@ -126,7 +130,7 @@ f5 <- function(x){
 Daten$Skala_m <- f5(Daten$Interesse_Math)
 Daten$Skala_p <- f5(Daten$Interesse_Prog)
 
-#Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich f¨¹r das Programmieren von hoch nach niedrig interessieren.
+#Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich fuer das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
   geom_bar(stat = "count",position="dodge")+
   theme(axis.title.x=element_blank())+
@@ -137,7 +141,7 @@ ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
   theme_ipsum()
 
 
-#Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich f¨¹r  Mathe von hoch nach niedrig interessieren.
+#Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich fuer  Mathe von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   geom_bar(stat = "count",position="dodge")+
   theme(axis.title.x=element_blank())+
@@ -148,5 +152,8 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   theme_ipsum()
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef38c6c55d9523e01b5755705f4d8d3df4140a21
 
