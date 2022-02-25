@@ -175,3 +175,8 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
+
+#mosaicplot
+mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+
