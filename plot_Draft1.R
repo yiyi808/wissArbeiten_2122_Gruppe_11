@@ -176,6 +176,8 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
 
+Daten$Mathe_LK[Daten$Mathe_LK=="1"] <-"ja"
+Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
 #mosaicplot
 mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
 mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
