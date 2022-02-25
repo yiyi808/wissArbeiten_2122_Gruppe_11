@@ -8,8 +8,8 @@ library(viridis)
 Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
 View(Daten)
 str(Daten)
-#Gibt es 6 Variablen und Jede Variable hat 100 Werte.
-#Nummer jeder Person，Alter ,Studienfach ,Interesse_Math,Interesse_Prog,Mathe_LK
+#Es gibt 6 Variablen in diesem Dataframe und Jede Variable hat 100 Werte.
+#6 Variablen sind: Nummer jeder Person, Alter, Studienfach, Interesse_Math, Interesse_Prog, Mathe_LK.
 Alter<-Daten$Alter
 Studienfach<-Daten$Studienfach 
 #Es gibt vier Studienfächer:Statisitk ,Data Science, Mathe,Informatik.
