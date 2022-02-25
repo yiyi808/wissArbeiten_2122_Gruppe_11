@@ -85,7 +85,7 @@ ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
   theme(
     legend.position="none",
     plot.title = element_text(size=11) )
-#Insgesamt glaube ich nicht, dass es einen großen Unterschied in der Altersverteilung der vier Studienfächer gibt. 
+#Insgesamt glaube ich , dass es keinen großen Unterschied in der Altersverteilung der vier Studienfächer gibt. 
 #Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
@@ -136,7 +136,8 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 #die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
 #Dagegen haben sechzig Prozent der Informatik- und Mathe_Studenten eine Mathe-LK besucht. 
 #Dieser deutliche Unterschied laesst darauf schließen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
-
+#Das heißt, von denjenigen, die Mathe und Informatik als Studienfach haben, haben die meisten von ihnen Math_LK in der Schule besucht. 
+#Und die Leute, die Statistik und Data Science studieren, haben meistens keinen Math_LK in der Schule besucht.
 
 ###### Mathe & Programmierung Interesse######  
 #Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
