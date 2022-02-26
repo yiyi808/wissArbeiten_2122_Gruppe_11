@@ -85,8 +85,7 @@ A(Alter_ma)
 ########Boxplot: Gesamte befragte Altersverteilung#######
 boxplot( Alter,border = "red")
 ###Boxplot und Plot zwischen Alter & Studienfach ###
-library(hrbrthemes)
-library(viridis)
+
 Daten%>%
 ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
   geom_boxplot() +
@@ -122,15 +121,17 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
 
 
 #c)Mathe_LK
-ja<-Daten$Mathe_LK[Daten$Mathe_LK=="1"]
-Nein<-Daten$Mathe_LK[Daten$Mathe_LK=="0"]
+Daten$Mathe_LK[Daten$Mathe_LK=="1"] <- "ja"
+Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
 #20 Personen hatte in der Schule Mathe-LK.
 #80 Personen hatte in der schule Mathe-LK.
 #Die Anzahl der Personen wird in einem Balkendiagramm dargestellt
 ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
   geom_bar(stat = "count",position = "dodge")+
   xlim("ja","Nein")+
-  ylab("Absolute Haufigkeit")
+  ylab("Absolute Haufigkeit")+
+ scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  theme_ipsum()
 
 
 #d)Interesse_Math 
@@ -212,8 +213,7 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 
 
 #Grafik zwischen Studienfach & Interesse_Math & Mathe_LK
-Daten$Mathe_LK[Daten$Mathe_LK=="1"] <-"ja"
-Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
+
 #mosaicplot zwischen Studienfach & Interesse_Math & Mathe_LK
 Mosaicplot_Math<-mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
 
