@@ -1,10 +1,15 @@
 ##Teil4
+
+#####Li JInzhen & Jing Xinyi
+
 library(dplyr)
 library(ggplot2)
 library(DescTools)
 library(hrbrthemes)
 library(viridis)
 library(vcd)
+
+
 
 #Fuer die ganze Daten
 Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
@@ -76,7 +81,7 @@ boxplot( Alter,border = "red")
 ###Boxplot und Plot zwischen Alter & Studienfach ###
 
 Daten%>%
-ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
+  ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
   geom_boxplot() +
   xlab("Studienfach")+
   scale_fill_viridis(discrete = TRUE,option = "E" ,alpha=0.6) +
@@ -97,19 +102,19 @@ B <- function(x){
   sum <- table(x)
   h <- prop.table(table(x))
   return(c(Art=a,Anzahl=sum,haeufig=h))
-  }
+}
 B(Studienfach)
 #Anzahl.Data Science    Anzahl.Informatik 
-#               32.00                11.00 
+#               35.00                10.00 
 #        Anzahl.Mathe     Anzahl.Statistik 
-#               10.00                47.00 
+#               20.00                35.00 
 #haeufig.Data Science   haeufig.Informatik 
-#                0.32                 0.11 
+#                0.35                 0.10 
 #       haeufig.Mathe    haeufig.Statistik 
-#                0.10                 0.47 
+#                0.20                 0.35 
 
-#47 Personen studieren Statistik.32 Personen studieren Data Science.
-#10 Personen studieren Mathe.  11 Personen studieren Informatik.
+#35 Personen studieren Statistik.35 Personen studieren Data Science.
+#20 Personen studieren Mathe.  10 Personen studieren Informatik.
 #Die Anzahl der Personen in jedem Studienfach wird in einem Balkendiagramm dargestellt.
 
 ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
@@ -127,18 +132,16 @@ Daten$Mathe_LK[Daten$Mathe_LK=="1"] <- "ja"
 Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
 ##Anzahl rechnen
 B(Mathe_LK)
- #Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
-  #   80.0      20.0       0.8       0.2 
-#20 Personen hatte in der Schule Mathe-LK.
-#80 Personen hatte in der schule Mathe-LK.
+#Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
+#72.00     28.00      0.72      0.28 
+#72 Personen hatte in der Schule Mathe-LK nicht.
+#28 Personen hatte in der schule Mathe-LK.
 #Die Anzahl der Personen wird in einem Balkendiagramm dargestellt
 ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
   geom_bar(stat = "count",position = "dodge")+
-  xlim("ja","Nein")+
   ylab("Absolute Haufigkeit")+
- scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
   theme_ipsum()
-
 
 #d)Interesse_Math 
 #Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
@@ -166,7 +169,7 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
 
-e)Interesse_Prog
+##e)Interesse_Prog
 Daten$Skala_p <- f5(Daten$Interesse_Prog)
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
@@ -174,7 +177,7 @@ ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
   theme(axis.title.x=element_blank())+
   ylab("Anzahl")+
   xlab("Interesse Stufe")+
-scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
   ggtitle("Balkondiagramm des Interesse an der Programmierung") +
   theme_ipsum()
 
@@ -192,7 +195,7 @@ C(Studienfach,Mathe_LK)
 #Pearson's Chi-squared test
 
 #data:  x and y
-#X-squared = 43.967, df = 3, p-value = 1.534e-09
+#X-squared = 50.751, df = 3, p-value = 5.527e-11
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Math_LK, d.h. die Studienfach ist nicht unabhaengig vom Math_LK.
@@ -210,12 +213,9 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
   scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
   ggtitle("") +
   theme_ipsum()
-#Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, 
-#die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
-#Dagegen haben sechzig Prozent der Informatik- und Mathe_Studenten eine Mathe-LK besucht. 
-#Dieser deutliche Unterschied laesst darauf schließen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
-#Das heißt, von denjenigen, die Mathe und Informatik als Studienfach haben, haben die meisten von ihnen Math_LK in der Schule besucht. 
-#Und die Leute, die Statistik und Data Science studieren, haben meistens keinen Math_LK in der Schule besucht.
+#Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
+#Dagegen haben etwa sechzig Prozent der Informatik- und etwa achtzig Prozent Mathe_Studenten eine Mathe-LK besucht. 
+#Dieser deutliche Unterschied laesst darauf schliessen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
 
 
 
@@ -228,29 +228,31 @@ Mosaicplot_Math<-mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 
 #####Test zwischen Interesse_Math  &  Mathe_LK
 C(Interesse_Math,Mathe_LK)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 22.778, df = 6, p-value = 0.0008744
+#X-squared = 21.05, df = 6, p-value = 0.001797
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Interesse_Math und Mathe_LK, 
 #d.h. die Interesse_Math ist nicht unabhaengig vom Mathe_LK.
 Mosaicplot_Math
 #####Mosaicplot Erklaerung zwischen Interesse_Math  &  Mathe_LK
 #Wenn wir uns die Mosaicplot_Math ansehen, können wir feststellen, 
-#dass die meisten Menschen, die Math_LK in der Schule besucht haben, sich auf diesen Teil des hohen Interesses an Mathematik konzentrieren
+#dass die meisten Menschen, die Math_LK in der Schule besucht haben, sich auf diesen Teil des hohen Interesses an Mathematik konzentrieren。
 
 #########Studienfach  &  Interesse_Math###############
 #Test zwischen Studienfach & Interesse_Math
 C(Studienfach,Interesse_Math)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 31.795, df = 18, p-value = 0.02325
+#X-squared = 41.178, df = 18, p-value = 0.001438
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
 Mosaicplot_Math
 #####Mosaicplot Erklaerung zwischen Studienfach & Interesse_Math
 #Wenn wir uns das Mosaikdiagramm ansehen, können wir sehen, dass Mathematik-Studenten den höchsten Anteil an Personen mit einem hohen Interesse an Mathe haben. 
-#An zweiter Stelle steht der Studiengang Informatik, gefolgt vom Studiengang Data Science. Das Studienfach Statistik ist am niedrigsten.
+#An zweiter Stelle steht der Studiengang Statistik, gefolgt vom Studiengang Data Science. Das Studienfach Informatik ist am niedrigsten.
 
 
 
@@ -263,23 +265,25 @@ Mosaicplot_Prog<-mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 
 #####Test zwischen Studienfach  &  Interesse_Prog
 C(Studienfach,Interesse_Prog)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 58.401, df = 18, p-value = 3.699e-06
+#X-squared = 52.302, df = 18, p-value = 3.362e-05
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
 Mosaicplot_Prog
 #####Mosaicplot Erklaerung zwischen Studienfach  &  Interesse_Prog
 #Wenn wir uns das Mosaicplot_Prog ansehen, können wir sehen, dass Informatik-Studenten den höchsten Prozentsatz an Menschen mit einem hohen Interesse an Programmierung haben. 
-#An zweiter Stelle steht der Studiengang Data Science, gefolgt vom Studiengang Statistik. Das Studienfach Mathematik ist am niedrigsten.
+#An zweiter Stelle steht der Studiengang Statistik, gefolgt vom Studiengang Data Science. Statistik und Data Science sind sehr nah.Das Studienfach Mathe ist am niedrigsten.
 
 
 #########Interesse_Prog  &  Mathe_LK###############
 #####Test zwischen Interesse_Prog  &  Mathe_LK
 C(Interesse_Prog,Mathe_LK)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 19.227, df = 6, p-value = 0.003797
+#X-squared = 22.556, df = 6, p-value = 0.0009598
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Interesse_Prog und Mathe_LK, 
 #d.h. die Interesse_Prog ist nicht unabhaengig vom Mathe_LK.
@@ -294,17 +298,22 @@ D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
 #####Test zwischen  Alter  &  Mathe_LK
+Daten$Mathe_LK[Daten$Mathe_LK=="nein"] <-0
+Daten$Mathe_LK[Daten$Mathe_LK=="ja"] <- 1
+Daten$Mathe_LK <- as.numeric(Daten$Mathe_LK)
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
+
 #data:  x and y
-#t = 1.0298, df = 98, p-value = 0.3056
+#t = 0.68724, df = 98, p-value = 0.4936
 #alternative hypothesis: true correlation is not equal to 0
 #95 percent confidence interval:
-# -0.0948813  0.2939102
+# -0.1289167  0.2621077
 #sample estimates:
-    # cor 
-#0.103465 
+#       cor 
+#0.06925505
 # Da p-value grosse als 0.05 ist,
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
-#Der Korrelationskoeffizient betraegt 0,103465.
+#Der Korrelationskoeffizient betraegt 0.06925505.
+
