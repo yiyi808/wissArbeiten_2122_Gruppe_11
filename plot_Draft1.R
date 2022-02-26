@@ -4,18 +4,7 @@ library(ggplot2)
 library(DescTools)
 library(hrbrthemes)
 library(viridis)
-library(mvtnorm)
-library(rstudioapi)
-library(gld)
-library(lmom)
-library(e1071)
-library(proxy)
-library(expm)
-library(Exact)
-library(DescTools)
-library(rootSolve)
-
-
+library(vcd)
 
 #Fuer die ganze Daten
 Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
