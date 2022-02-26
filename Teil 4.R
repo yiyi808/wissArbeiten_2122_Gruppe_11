@@ -48,8 +48,7 @@ Alter_st <- Daten$Alter[Daten$Studienfach=="Statistik"]
 Alter_ds <- Daten$Alter[Daten$Studienfach=="Data Science"]
 Alter_ma <- Daten$Alter[Daten$Studienfach=="Mathe"]
 Alter_Info <- Daten$Alter[Daten$Studienfach=="Informatik"]
-#47 Personen studieren Statistik.32 Personen studieren Data Science.
-#10 Personen studieren Mathe.  11 Personen studieren Informatik.
+
 
 A(Daten$Alter)
 #antwort
