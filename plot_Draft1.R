@@ -41,8 +41,7 @@ Alter_st <- Daten$Alter[Daten$Studienfach=="Statistik"]
 Alter_ds <- Daten$Alter[Daten$Studienfach=="Data Science"]
 Alter_ma <- Daten$Alter[Daten$Studienfach=="Mathe"]
 Alter_Info <- Daten$Alter[Daten$Studienfach=="Informatik"]
-#47 Personen studieren Statistik.32 Personen studieren Data Science.
-#10 Personen studieren Mathe.  11 Personen studieren Informatik.
+
 
 A(Daten$Alter)
 #antwort
@@ -91,10 +90,22 @@ ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
 #b)Studienfach
-Alter_st <- Daten$Alter[Daten$Studienfach=="Statistik"]
-Alter_ds <- Daten$Alter[Daten$Studienfach=="Data Science"]
-Alter_ma <- Daten$Alter[Daten$Studienfach=="Mathe"]
-Alter_Info <- Daten$Alter[Daten$Studienfach=="Informatik"]
+B <- function(x){
+  a <- levels(x)
+  sum <- table(x)
+  h <- prop.table(table(x))
+  return(c(Art=a,Anzahl=sum,haeufig=h))
+  }
+B(Studienfach)
+#Anzahl.Data Science    Anzahl.Informatik 
+#               32.00                11.00 
+#        Anzahl.Mathe     Anzahl.Statistik 
+#               10.00                47.00 
+#haeufig.Data Science   haeufig.Informatik 
+#                0.32                 0.11 
+#       haeufig.Mathe    haeufig.Statistik 
+#                0.10                 0.47 
+
 #47 Personen studieren Statistik.32 Personen studieren Data Science.
 #10 Personen studieren Mathe.  11 Personen studieren Informatik.
 #Die Anzahl der Personen in jedem Studienfach wird in einem Balkendiagramm dargestellt.
@@ -112,6 +123,9 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
 #c)Mathe_LK
 Daten$Mathe_LK[Daten$Mathe_LK=="1"] <- "ja"
 Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
+B(Mathe_LK)
+ #Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
+  #   80.0      20.0       0.8       0.2 
 #20 Personen hatte in der Schule Mathe-LK.
 #80 Personen hatte in der schule Mathe-LK.
 #Die Anzahl der Personen wird in einem Balkendiagramm dargestellt
@@ -138,6 +152,7 @@ f5 <- function(x){
 }
 
 Daten$Skala_m <- f5(Daten$Interesse_Math)
+
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für  Mathe von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   geom_bar(stat = "count",position="dodge")+
