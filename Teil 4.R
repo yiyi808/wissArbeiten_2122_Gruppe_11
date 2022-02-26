@@ -1,17 +1,12 @@
+######Teil4############
 
-##Teil4
-
-#####Li JInzhen & Jing Xinyi
-
-
+#####  Jinzhen Li & Xinyi Jing############
 library(dplyr)
 library(ggplot2)
 library(DescTools)
 library(hrbrthemes)
 library(viridis)
 library(vcd)
-
-
 
 #Fuer die ganze Daten
 Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
@@ -97,6 +92,7 @@ Daten%>%
 #Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
+
 #b)Studienfach
 ##Anzahl rechnen
 B <- function(x){
@@ -171,7 +167,7 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
 
-##e)Interesse_Prog
+e)Interesse_Prog
 Daten$Skala_p <- f5(Daten$Interesse_Prog)
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
@@ -300,9 +296,6 @@ D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
 #####Test zwischen  Alter  &  Mathe_LK
-Daten$Mathe_LK[Daten$Mathe_LK=="nein"] <-0
-Daten$Mathe_LK[Daten$Mathe_LK=="ja"] <- 1
-Daten$Mathe_LK <- as.numeric(Daten$Mathe_LK)
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
 
@@ -318,4 +311,3 @@ D(Alter,Mathe_LK)
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
 #Der Korrelationskoeffizient betraegt 0.06925505.
-
