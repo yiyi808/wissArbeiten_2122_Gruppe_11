@@ -137,11 +137,9 @@ B(Mathe_LK)
 #Die Anzahl der Personen wird in einem Balkendiagramm dargestellt
 ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
   geom_bar(stat = "count",position = "dodge")+
-  xlim("ja","Nein")+
   ylab("Absolute Haufigkeit")+
- scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
   theme_ipsum()
-
 
 #d)Interesse_Math 
 #Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
