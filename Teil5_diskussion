@@ -237,7 +237,7 @@ C(Interesse_Math,Mathe_LK)
 Mosaicplot_Math
 #####Mosaicplot Erklaerung zwischen Interesse_Math  &  Mathe_LK
 #Wenn wir uns die Mosaicplot_Math ansehen, können wir feststellen, 
-#dass die meisten Menschen, die Math_LK in der Schule besucht haben, sich auf diesen Teil des hohen Interesses an Mathematik konzentrieren
+#dass die meisten Menschen, die Math_LK in der Schule besucht haben, sich auf diesen Teil des hohen Interesses an Mathematik konzentrieren。
 
 #########Studienfach  &  Interesse_Math###############
 #Test zwischen Studienfach & Interesse_Math
@@ -252,7 +252,7 @@ C(Studienfach,Interesse_Math)
 Mosaicplot_Math
 #####Mosaicplot Erklaerung zwischen Studienfach & Interesse_Math
 #Wenn wir uns das Mosaikdiagramm ansehen, können wir sehen, dass Mathematik-Studenten den höchsten Anteil an Personen mit einem hohen Interesse an Mathe haben. 
-#An zweiter Stelle steht der Studiengang Informatik, gefolgt vom Studiengang Data Science. Das Studienfach Statistik ist am niedrigsten.
+#An zweiter Stelle steht der Studiengang Statistik, gefolgt vom Studiengang Data Science. Das Studienfach Informatik ist am niedrigsten.
 
 
 
@@ -274,7 +274,7 @@ C(Studienfach,Interesse_Prog)
 Mosaicplot_Prog
 #####Mosaicplot Erklaerung zwischen Studienfach  &  Interesse_Prog
 #Wenn wir uns das Mosaicplot_Prog ansehen, können wir sehen, dass Informatik-Studenten den höchsten Prozentsatz an Menschen mit einem hohen Interesse an Programmierung haben. 
-#An zweiter Stelle steht der Studiengang Data Science, gefolgt vom Studiengang Statistik. Das Studienfach Mathematik ist am niedrigsten.
+#An zweiter Stelle steht der Studiengang Statistik, gefolgt vom Studiengang Data Science. Statistik und Data Science sind sehr nah.Das Studienfach Mathe ist am niedrigsten.
 
 
 #########Interesse_Prog  &  Mathe_LK###############
