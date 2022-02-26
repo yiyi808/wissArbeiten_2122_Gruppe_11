@@ -130,10 +130,10 @@ Daten$Mathe_LK[Daten$Mathe_LK=="1"] <- "ja"
 Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
 ##Anzahl rechnen
 B(Mathe_LK)
- #Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
-  #   80.0      20.0       0.8       0.2 
-#20 Personen hatte in der Schule Mathe-LK.
-#80 Personen hatte in der schule Mathe-LK.
+#Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
+#72.00     28.00      0.72      0.28 
+#72 Personen hatte in der Schule Mathe-LK nicht.
+#28 Personen hatte in der schule Mathe-LK.
 #Die Anzahl der Personen wird in einem Balkendiagramm dargestellt
 ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
   geom_bar(stat = "count",position = "dodge")+
@@ -213,12 +213,9 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
   scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
   ggtitle("") +
   theme_ipsum()
-#Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, 
-#die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
-#Dagegen haben sechzig Prozent der Informatik- und Mathe_Studenten eine Mathe-LK besucht. 
-#Dieser deutliche Unterschied laesst darauf schließen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
-#Das heißt, von denjenigen, die Mathe und Informatik als Studienfach haben, haben die meisten von ihnen Math_LK in der Schule besucht. 
-#Und die Leute, die Statistik und Data Science studieren, haben meistens keinen Math_LK in der Schule besucht.
+#Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
+#Dagegen haben etwa sechzig Prozent der Informatik- und etwa achtzig Prozent Mathe_Studenten eine Mathe-LK besucht. 
+#Dieser deutliche Unterschied laesst darauf schliessen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
 
 
 
