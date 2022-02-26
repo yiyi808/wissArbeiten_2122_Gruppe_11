@@ -218,10 +218,11 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 #Und die Leute, die Statistik und Data Science studieren, haben meistens keinen Math_LK in der Schule besucht.
 
 
+
+
 #####Grafik zwischen Studienfach & Interesse_Math & Mathe_LK
 #mosaicplot zwischen Studienfach & Interesse_Math & Mathe_LK
 Mosaicplot_Math<-mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
-
 
 #########Interesse_Math  &  Mathe_LK###############
 #####Test zwischen Interesse_Math  &  Mathe_LK
@@ -237,7 +238,6 @@ Mosaicplot_Math
 #Wenn wir uns die Mosaicplot_Math ansehen, können wir feststellen, 
 #dass die meisten Menschen, die Math_LK in der Schule besucht haben, sich auf diesen Teil des hohen Interesses an Mathematik konzentrieren
 
-
 #########Studienfach  &  Interesse_Math###############
 #Test zwischen Studienfach & Interesse_Math
 C(Studienfach,Interesse_Math)
@@ -251,9 +251,13 @@ Mosaicplot_Math
 #####Mosaicplot Erklaerung zwischen Studienfach & Interesse_Math
 #Wenn wir uns das Mosaikdiagramm ansehen, können wir sehen, dass Mathematik-Studenten den höchsten Anteil an Personen mit einem hohen Interesse an Mathe haben. 
 #An zweiter Stelle steht der Studiengang Informatik, gefolgt vom Studiengang Data Science. Das Studienfach Statistik ist am niedrigsten.
+
+
+
+
+
 #####Mosaicplot zwischen Studienfach & Interesse_Prog & Mathe_LK
 Mosaicplot_Prog<-mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
-
 
 #########Studienfach  &  Interesse_Prog###############
 #####Test zwischen Studienfach  &  Interesse_Prog
