@@ -74,3 +74,150 @@ A(Alter_ma)
 ########Boxplot: Gesamte befragte Altersverteilung#######
 boxplot( Alter,border = "red")
 ###Boxplot und Plot zwischen Alter & Studienfach ###
+
+Daten%>%
+ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
+  geom_boxplot() +
+  xlab("Studienfach")+
+  scale_fill_viridis(discrete = TRUE,option = "E" ,alpha=0.6) +
+  ggtitle("Boxplots des Alters nach Studienfach ")+
+  geom_jitter(color="black", size=0.4, alpha=0.9) +
+  theme_ipsum() +
+  theme(
+    legend.position="none",
+    plot.title = element_text(size=11) )
+#Insgesamt glaube ich , dass es keinen großen Unterschied in der Altersverteilung der vier Studienfächer gibt. 
+#Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
+# Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
+
+#b)Studienfach
+##Anzahl rechnen
+B <- function(x){
+  a <- levels(x)
+  sum <- table(x)
+  h <- prop.table(table(x))
+  return(c(Art=a,Anzahl=sum,haeufig=h))
+  }
+B(Studienfach)
+#Anzahl.Data Science    Anzahl.Informatik 
+#               32.00                11.00 
+#        Anzahl.Mathe     Anzahl.Statistik 
+#               10.00                47.00 
+#haeufig.Data Science   haeufig.Informatik 
+#                0.32                 0.11 
+#       haeufig.Mathe    haeufig.Statistik 
+#                0.10                 0.47 
+
+#47 Personen studieren Statistik.32 Personen studieren Data Science.
+#10 Personen studieren Mathe.  11 Personen studieren Informatik.
+#Die Anzahl der Personen in jedem Studienfach wird in einem Balkendiagramm dargestellt.
+
+ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
+  geom_bar(stat = "count",position = "dodge")+
+  ylab("Absolute Haufigkeit")+
+  xlab("Studienfach")+
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  ggtitle("Balkendiagramm  der Studentenzahlen in den vier Studienfaecher") +
+  theme_ipsum()
+
+
+
+#c)Mathe_LK
+Daten$Mathe_LK[Daten$Mathe_LK=="1"] <- "ja"
+Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
+##Anzahl rechnen
+B(Mathe_LK)
+ #Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
+  #   80.0      20.0       0.8       0.2 
+#20 Personen hatte in der Schule Mathe-LK.
+#80 Personen hatte in der schule Mathe-LK.
+#Die Anzahl der Personen wird in einem Balkendiagramm dargestellt
+ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
+  geom_bar(stat = "count",position = "dodge")+
+  xlim("ja","Nein")+
+  ylab("Absolute Haufigkeit")+
+ scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  theme_ipsum()
+
+
+#d)Interesse_Math 
+#Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
+intern <- function(x) min(x):max(x)
+f5 <- function(x){
+  Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
+  # Klasseneinteilung
+  k<- numeric(length(x))
+  k[x <= Q[2]] <- "niedrig"
+  k[Q[1] <= x & x < Q[2]] <- "mittel"
+  k[x >= Q[2]] <- "hoch"
+  k[is.na(x)] <- NA
+  return(k)
+}
+
+Daten$Skala_m <- f5(Daten$Interesse_Math)
+
+#Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für  Mathe von hoch nach niedrig interessieren.
+ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
+  geom_bar(stat = "count",position="dodge")+
+  theme(axis.title.x=element_blank())+
+  ylab("Anzahl")+
+  xlab("Interesse Stufe")+
+  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  ggtitle("Balkondiagramm des Interesses an der Mathe") +
+  theme_ipsum()
+
+e)Interesse_Prog
+Daten$Skala_p <- f5(Daten$Interesse_Prog)
+#Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
+ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
+  geom_bar(stat = "count",position="dodge")+
+  theme(axis.title.x=element_blank())+
+  ylab("Anzahl")+
+  xlab("Interesse Stufe")+
+scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+  ggtitle("Balkondiagramm des Interesse an der Programmierung") +
+  theme_ipsum()
+
+
+#########Studienfach  &  Mathe_LK###############
+#####Test zwischen Studienfach  &  Mathe_LK
+C <- function(x,y){
+  tab <- table(x,y)
+  Assocs(tab)
+  
+  chisq.test(x,y)
+}
+
+C(Studienfach,Mathe_LK)
+#Pearson's Chi-squared test
+
+#data:  x and y
+#X-squared = 43.967, df = 3, p-value = 1.534e-09
+#Da p-value kleiner als 0.05 ist,
+#gibt es einen signifikanten Zusammenhang zwischen Studienfach
+#und Math_LK, d.h. die Studienfach ist nicht unabhaengig vom Math_LK.
+
+#####Grafik zwischen Studienfach  &  Mathe_LK
+#Das nachstehende Histogramm zeigt den prozentualen Anteil der Personen in jedem Studienfach,
+#die in der schule Mathe-LK hatte oder nicht.
+data <- Daten%>% group_by(Studienfach,Mathe_LK)%>%
+  summarise(anzahl=sum(length(Mathe_LK))) 
+data$Mathe_LK[data$Mathe_LK=="0"] <-"nein"
+data$Mathe_LK[data$Mathe_LK=="1"] <- "ja"
+ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
+  geom_bar(stat = "identity",position = "fill")+ylab("relative Häufigkeit")+
+  xlab("")+
+  scale_fill_viridis(discrete = T,option = "E",alpha=0.6) +
+  ggtitle("") +
+  theme_ipsum()
+#Aus dieser Grafik geht klar hervor, dass neunzig Prozent der Personen, 
+#die Statistik und Data Science studieren, keine Mathe-LK besucht haben. 
+#Dagegen haben sechzig Prozent der Informatik- und Mathe_Studenten eine Mathe-LK besucht. 
+#Dieser deutliche Unterschied laesst darauf schließen, dass der Studienfach einen Einfluss darauf hat, ob jemand eine Mathe-LK  hatte oder nicht.
+#Das heißt, von denjenigen, die Mathe und Informatik als Studienfach haben, haben die meisten von ihnen Math_LK in der Schule besucht. 
+#Und die Leute, die Statistik und Data Science studieren, haben meistens keinen Math_LK in der Schule besucht.
+
+
+
+#Grafik zwischen Studienfach & Interesse_Math & Mathe_LK
+
