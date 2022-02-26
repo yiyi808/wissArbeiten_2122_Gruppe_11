@@ -1,7 +1,9 @@
-###Diskussion Teil5
-######Teil4############
+### Diskussion Teil5
+### Aller Mitglieder
 
-#####  Jinzhen Li & Xinyi Jing############
+## Wir vergleichen den Inhalt von Teil IV mit dem von Teil I und diskutieren,
+## ob wir die Beziehungen zwischen den verschiedenen Variablen richtig analysiert haben.
+
 library(dplyr)
 library(ggplot2)
 library(DescTools)
@@ -167,7 +169,7 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
 
-##e)Interesse_Prog
+e)Interesse_Prog
 Daten$Skala_p <- f5(Daten$Interesse_Prog)
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
@@ -296,9 +298,6 @@ D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
 #####Test zwischen  Alter  &  Mathe_LK
-Daten$Mathe_LK[Daten$Mathe_LK=="nein"] <-0
-Daten$Mathe_LK[Daten$Mathe_LK=="ja"] <- 1
-Daten$Mathe_LK <- as.numeric(Daten$Mathe_LK)
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
 
