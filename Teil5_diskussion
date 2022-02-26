@@ -95,6 +95,18 @@ ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
 #Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
+########### Normalvrteilung
+shapiro.test(Alter) 
+#Shapiro-Wilk normality test
+#data:  Alter
+#W = 0.96686, p-value = 0.01279
+#Die W-Statistik liegt nahe bei 1 und der p-Wert ist signifikant größer als 0,05, 
+#so dass nicht ausgeschlossen werden kann, dass es sich um eine Normalverteilung handelt.
+qqnorm(Alter)
+qqline(Alter)
+#Hier kann man sehen, dass die Alter einer Normalverteilung entspricht.
+
+
 #b)Studienfach
 ##Anzahl rechnen
 B <- function(x){
