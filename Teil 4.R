@@ -219,5 +219,82 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 
 
 
-#Grafik zwischen Studienfach & Interesse_Math & Mathe_LK
 
+#Grafik zwischen Studienfach & Interesse_Math & Mathe_LK
+#mosaicplot zwischen Studienfach & Interesse_Math & Mathe_LK
+Mosaicplot_Math<-mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+#########Interesse_Math  &  Mathe_LK###############
+#####Test zwischen Interesse_Math  &  Mathe_LK
+C(Interesse_Math,Mathe_LK)
+#Pearson's Chi-squared test
+#data:  x and y
+#X-squared = 22.778, df = 6, p-value = 0.0008744
+#Da p-value kleiner als 0.05 ist,
+#gibt es einen signifikanten Zusammenhang zwischen Interesse_Math und Mathe_LK, 
+#d.h. die Interesse_Math ist nicht unabhaengig vom Mathe_LK.
+Mosaicplot_Math
+#####Mosaicplot Erklaerung zwischen Interesse_Math  &  Mathe_LK
+#Wenn wir uns die Mosaicplot_Math ansehen, können wir feststellen, 
+#dass die meisten Menschen, die Math_LK in der Schule besucht haben, sich auf diesen Teil des hohen Interesses an Mathematik konzentrieren
+#########Studienfach  &  Interesse_Math###############
+#Test zwischen Studienfach & Interesse_Math
+C(Studienfach,Interesse_Math)
+#Pearson's Chi-squared test
+#data:  x and y
+#X-squared = 31.795, df = 18, p-value = 0.02325
+#Da p-value kleiner als 0.05 ist,
+#gibt es einen signifikanten Zusammenhang zwischen Studienfach
+#und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
+Mosaicplot_Math
+#####Mosaicplot Erklaerung zwischen Studienfach & Interesse_Math
+#Wenn wir uns das Mosaikdiagramm ansehen, können wir sehen, dass Mathematik-Studenten den höchsten Anteil an Personen mit einem hohen Interesse an Mathe haben. 
+#An zweiter Stelle steht der Studiengang Informatik, gefolgt vom Studiengang Data Science. Das Studienfach Statistik ist am niedrigsten.
+#####Mosaicplot zwischen Studienfach & Interesse_Prog & Mathe_LK
+Mosaicplot_Prog<-mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+#########Studienfach  &  Interesse_Prog###############
+#####Test zwischen Studienfach  &  Interesse_Prog
+C(Studienfach,Interesse_Prog)
+#Pearson's Chi-squared test
+#data:  x and y
+#X-squared = 58.401, df = 18, p-value = 3.699e-06
+#Da p-value kleiner als 0.05 ist,
+#gibt es einen signifikanten Zusammenhang zwischen Studienfach
+#und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
+Mosaicplot_Prog
+#####Mosaicplot Erklaerung zwischen Studienfach  &  Interesse_Prog
+#Wenn wir uns das Mosaicplot_Prog ansehen, können wir sehen, dass Informatik-Studenten den höchsten Prozentsatz an Menschen mit einem hohen Interesse an Programmierung haben. 
+#An zweiter Stelle steht der Studiengang Data Science, gefolgt vom Studiengang Statistik. Das Studienfach Mathematik ist am niedrigsten.
+#########Interesse_Prog  &  Mathe_LK###############
+#####Test zwischen Interesse_Prog  &  Mathe_LK
+C(Interesse_Prog,Mathe_LK)
+#Pearson's Chi-squared test
+#data:  x and y
+#X-squared = 19.227, df = 6, p-value = 0.003797
+#Da p-value kleiner als 0.05 ist,
+#gibt es einen signifikanten Zusammenhang zwischen Interesse_Prog und Mathe_LK, 
+#d.h. die Interesse_Prog ist nicht unabhaengig vom Mathe_LK.
+Mosaicplot_Prog
+#####Mosaicplot Erklaerung zwischen Interesse_Prog  &  Mathe_LK
+#Wenn wir uns das Mosaikdiagramm ansehen, können wir sehen, 
+#dass die überwiegende Mehrheit der Menschen mit einem hohen Interesse am Programmieren noch nie Math_LK in der Schule genommen hat.
+
+
+#########Alter  &  Mathe_LK###############
+D <- function(x, y){
+  cor.test(x, y, method=c("pearson"))
+}
+#####Test zwischen  Alter  &  Mathe_LK
+D(Alter,Mathe_LK)
+#Pearson's product-moment correlation
+#data:  x and y
+#t = 1.0298, df = 98, p-value = 0.3056
+#alternative hypothesis: true correlation is not equal to 0
+#95 percent confidence interval:
+# -0.0948813  0.2939102
+#sample estimates:
+    # cor 
+#0.103465 
+# Da p-value grosse als 0.05 ist,
+#gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
+#Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
+#Der Korrelationskoeffizient betraegt 0,103465.
