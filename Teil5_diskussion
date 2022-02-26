@@ -103,16 +103,16 @@ B <- function(x){
   }
 B(Studienfach)
 #Anzahl.Data Science    Anzahl.Informatik 
-#               32.00                11.00 
+#               35.00                10.00 
 #        Anzahl.Mathe     Anzahl.Statistik 
-#               10.00                47.00 
+#               20.00                35.00 
 #haeufig.Data Science   haeufig.Informatik 
-#                0.32                 0.11 
+#                0.35                 0.10 
 #       haeufig.Mathe    haeufig.Statistik 
-#                0.10                 0.47 
+#                0.20                 0.35 
 
-#47 Personen studieren Statistik.32 Personen studieren Data Science.
-#10 Personen studieren Mathe.  11 Personen studieren Informatik.
+#35 Personen studieren Statistik.35 Personen studieren Data Science.
+#20 Personen studieren Mathe.  10 Personen studieren Informatik.
 #Die Anzahl der Personen in jedem Studienfach wird in einem Balkendiagramm dargestellt.
 
 ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
