@@ -195,7 +195,7 @@ C(Studienfach,Mathe_LK)
 #Pearson's Chi-squared test
 
 #data:  x and y
-#X-squared = 43.967, df = 3, p-value = 1.534e-09
+#X-squared = 50.751, df = 3, p-value = 5.527e-11
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Math_LK, d.h. die Studienfach ist nicht unabhaengig vom Math_LK.
@@ -228,8 +228,9 @@ Mosaicplot_Math<-mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 
 #####Test zwischen Interesse_Math  &  Mathe_LK
 C(Interesse_Math,Mathe_LK)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 22.778, df = 6, p-value = 0.0008744
+#X-squared = 21.05, df = 6, p-value = 0.001797
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Interesse_Math und Mathe_LK, 
 #d.h. die Interesse_Math ist nicht unabhaengig vom Mathe_LK.
@@ -242,8 +243,9 @@ Mosaicplot_Math
 #Test zwischen Studienfach & Interesse_Math
 C(Studienfach,Interesse_Math)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 31.795, df = 18, p-value = 0.02325
+#X-squared = 41.178, df = 18, p-value = 0.001438
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
@@ -263,8 +265,9 @@ Mosaicplot_Prog<-mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 
 #####Test zwischen Studienfach  &  Interesse_Prog
 C(Studienfach,Interesse_Prog)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 58.401, df = 18, p-value = 3.699e-06
+#X-squared = 52.302, df = 18, p-value = 3.362e-05
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Studienfach
 #und Interesse_Math, d.h. die Studienfach ist nicht unabhaengig vom Interesse_Math.
@@ -278,8 +281,9 @@ Mosaicplot_Prog
 #####Test zwischen Interesse_Prog  &  Mathe_LK
 C(Interesse_Prog,Mathe_LK)
 #Pearson's Chi-squared test
+
 #data:  x and y
-#X-squared = 19.227, df = 6, p-value = 0.003797
+#X-squared = 22.556, df = 6, p-value = 0.0009598
 #Da p-value kleiner als 0.05 ist,
 #gibt es einen signifikanten Zusammenhang zwischen Interesse_Prog und Mathe_LK, 
 #d.h. die Interesse_Prog ist nicht unabhaengig vom Mathe_LK.
@@ -296,15 +300,16 @@ D <- function(x, y){
 #####Test zwischen  Alter  &  Mathe_LK
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
+
 #data:  x and y
-#t = 1.0298, df = 98, p-value = 0.3056
+#t = 0.68724, df = 98, p-value = 0.4936
 #alternative hypothesis: true correlation is not equal to 0
 #95 percent confidence interval:
-# -0.0948813  0.2939102
+# -0.1289167  0.2621077
 #sample estimates:
-    # cor 
-#0.103465 
+#       cor 
+#0.06925505
 # Da p-value grosse als 0.05 ist,
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
-#Der Korrelationskoeffizient betraegt 0,103465.
+#Der Korrelationskoeffizient betraegt 0.06925505.
