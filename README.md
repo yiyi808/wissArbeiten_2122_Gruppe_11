@@ -1,5 +1,13 @@
-Dieses Branch enthaelt Teil_4 RSkripts für Daten Analysis.
+Gruppenarbeit (3. Teilleistung) für die Veranstaltung wissenschaftliches Arbeiten an der TU Dortmund
 
-Es wurde von Jinzhen Li und Xinyi Jing erstellt.
+Gruppenmitglieder: Haiyi Rong & Jinzhen Li & Xinyi Jing & Yi Sun
+
+Dieses Repository enthaelt RSkripts.
+
+Teil 1&2 : Haiyi Rong & Yi Sun
+
+Teil 3 : Alle Gruppenmitglieder
+
+Teil 4 : Jinzhen Li & Xinyi Jing
 
 
