@@ -293,6 +293,7 @@ Mosaicplot_Prog
 D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
+#####Test zwischen  Alter  &  Mathe_LK
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
 
