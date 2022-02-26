@@ -1,4 +1,6 @@
-##Teil4
+######Teil4############
+
+#####  Jinzhen Li & Xinyi Jing############
 library(dplyr)
 library(ggplot2)
 library(DescTools)
