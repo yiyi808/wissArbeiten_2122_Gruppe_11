@@ -90,6 +90,7 @@ ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
 #b)Studienfach
+##Anzahl rechnen
 B <- function(x){
   a <- levels(x)
   sum <- table(x)
@@ -123,6 +124,7 @@ ggplot(data = Daten,aes(x =Studienfach ,fill=Studienfach))+
 #c)Mathe_LK
 Daten$Mathe_LK[Daten$Mathe_LK=="1"] <- "ja"
 Daten$Mathe_LK[Daten$Mathe_LK=="0"] <- "nein"
+##Anzahl rechnen
 B(Mathe_LK)
  #Anzahl.0  Anzahl.1 haeufig.0 haeufig.1 
   #   80.0      20.0       0.8       0.2 
