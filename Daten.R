@@ -12,11 +12,10 @@ Alter <- rnorm(100, mean = 25, sd = 2)
 Alter <- round(Alter,0)
 
 
-
 ## (2) Studienfach:
-fach <- c("Statistik", "Data Science", "Mathe", "Informatik") 
-Studienfach <- sample(fach, 100, replace=TRUE, prob=c(0.35, 0.35, 0.2, 0.1))
-
+fach <- c(rep("Statistik",35), rep("Data Science",35), rep("Mathe",20), rep("Informatik",10)) 
+Studienfach <- sample(fach, 100, replace=FALSE)
+df
 df <- data.frame(Alter, Studienfach)
 
 
@@ -48,7 +47,7 @@ df$Interesse_Math[df$Studienfach == c("Data Science")] <- sample(IM, length(df$I
 # Je geringer das Interesse an Mathematik ist, desto höher ist die Wahrscheinlichkeit, Informationen zu studieren.
 # Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.9, 0.8, 0.4, 0.3, 0.2, 0.1 und 0.05.
 df$Interesse_Math[df$Studienfach == c("Informatik")] <- sample(IM, length(df$Interesse_Math[df$Studienfach == c("Informatik")]), prob = c(0.9, 0.8, 0.4, 0.3, 0.2, 0.1, 0.05), replace=TRUE)
-df$Interesse_Math <- factor(df$Interesse_Prog, levels = 1:7, order = TRUE)
+df$Interesse_Math <- factor(df$Interesse_Math, levels = 1:7, order = TRUE)
 
 
 ## (4) Interesse an Programmieren:
