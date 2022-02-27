@@ -1,5 +1,13 @@
-Dieses Branch enthaelt RSkripts für Daten.
+Gruppenarbeit (3. Teilleistung) für die Veranstaltung wissenschaftliches Arbeiten an der TU Dortmund
 
-Es wurde von Haiyi Rong und Yi Sun erstellt.
+Gruppenmitglieder: Haiyi Rong & Jinzhen Li & Xinyi Jing & Yi Sun
 
-Die anderen Gruppenmitglieder sollten die Daten nicht lesen, bevor sie die Analyse abgeschlossen haben.
+Dieses Repository enthaelt RSkripts.
+
+Teil 1&2 : Haiyi Rong & Yi Sun
+
+Teil 3 : Alle Gruppenmitglieder
+
+Teil 4 : Jinzhen Li & Xinyi Jing
+
+Teil 5 : Alle Gruppenmitglieder
