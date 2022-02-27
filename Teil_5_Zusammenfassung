@@ -9,3 +9,7 @@ Wir verwenden dann die Zeichnung, um dies zu bestimmen. Durch qqnorm(Alter) und 
 
 2）Interest an Mathematik
 Der Level des Interesses an Mathematik wird in drei Stufen unterteilt: hoch, mittel und niedrig; nur die hohen Stufen werden hier analysiert; die niedrigen Stufen und die Zusammenhänge zwischen den verschiedenen Fächern werden nicht berücksichtigt
+
+3）Interest an Programmierung
+Analog zu 2）Interest an Mathematik.
+
