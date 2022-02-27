@@ -50,3 +50,8 @@ E <- function(x){
 
 
 #f)
+F<- function(y,z,x){
+  d  <- data_frame(y,z,x)
+  mosaic(~y+z+x,d,highlighting = 'x', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+}
+
