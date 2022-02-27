@@ -1,4 +1,3 @@
-
 ##Teil4
 
 #####Li JInzhen & Jing Xinyi
@@ -147,7 +146,7 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
 #d)Interesse_Math 
 #Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
 intern <- function(x) min(x):max(x)
-f5 <- function(x){
+E <- function(x){
   Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
@@ -158,7 +157,7 @@ f5 <- function(x){
   return(k)
 }
 
-Daten$Skala_m <- f5(Daten$Interesse_Math)
+Daten$Skala_m <- E(Daten$Interesse_Math)
 
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für  Mathe von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
@@ -171,7 +170,7 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   theme_ipsum()
 
 ##e)Interesse_Prog
-Daten$Skala_p <- f5(Daten$Interesse_Prog)
+Daten$Skala_p <- E(Daten$Interesse_Prog)
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
   geom_bar(stat = "count",position="dodge")+
@@ -317,4 +316,3 @@ D(Alter,Mathe_LK)
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
 #Der Korrelationskoeffizient betraegt 0.06925505.
-
