@@ -1,12 +1,16 @@
-######Teil4############
+##Teil4
 
-#####  Jinzhen Li & Xinyi Jing############
+#####Li JInzhen & Jing Xinyi
+
+
 library(dplyr)
 library(ggplot2)
 library(DescTools)
 library(hrbrthemes)
 library(viridis)
 library(vcd)
+
+
 
 #Fuer die ganze Daten
 Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
@@ -43,8 +47,7 @@ Alter_st <- Daten$Alter[Daten$Studienfach=="Statistik"]
 Alter_ds <- Daten$Alter[Daten$Studienfach=="Data Science"]
 Alter_ma <- Daten$Alter[Daten$Studienfach=="Mathe"]
 Alter_Info <- Daten$Alter[Daten$Studienfach=="Informatik"]
-#47 Personen studieren Statistik.32 Personen studieren Data Science.
-#10 Personen studieren Mathe.  11 Personen studieren Informatik.
+
 
 A(Daten$Alter)
 #antwort
@@ -91,7 +94,6 @@ Daten%>%
 #Insgesamt glaube ich , dass es keinen großen Unterschied in der Altersverteilung der vier Studienfächer gibt. 
 #Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
-
 
 #b)Studienfach
 ##Anzahl rechnen
@@ -144,7 +146,7 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
 #d)Interesse_Math 
 #Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
 intern <- function(x) min(x):max(x)
-E<- function(x){
+E <- function(x){
   Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
@@ -167,7 +169,7 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
 
-e)Interesse_Prog
+##e)Interesse_Prog
 Daten$Skala_p <- E(Daten$Interesse_Prog)
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
@@ -296,6 +298,9 @@ D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
 #####Test zwischen  Alter  &  Mathe_LK
+Daten$Mathe_LK[Daten$Mathe_LK=="nein"] <-0
+Daten$Mathe_LK[Daten$Mathe_LK=="ja"] <- 1
+Daten$Mathe_LK <- as.numeric(Daten$Mathe_LK)
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
 
