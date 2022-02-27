@@ -234,7 +234,12 @@ ggplot(data,aes(x=Studienfach  ,fill=Mathe_LK,y=anzahl))+
 
 #####Grafik zwischen Studienfach & Interesse_Math & Mathe_LK
 #mosaicplot zwischen Studienfach & Interesse_Math & Mathe_LK
-Mosaicplot_Math<-mosaic(~Studienfach+Skala_m+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+F<- function(y,z,x){
+   d  <- data.frame(y,z,x)
+   mosaic(~y+z+x,d,highlighting = 'x', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+ }
+ 
+ Mosaicplot_Math<-F(Daten$Studienfach,Daten$Skala_m,Daten$Mathe_LK)
 
 #########Interesse_Math  &  Mathe_LK###############
 #####Test zwischen Interesse_Math  &  Mathe_LK
@@ -271,7 +276,7 @@ Mosaicplot_Math
 
 
 #####Mosaicplot zwischen Studienfach & Interesse_Prog & Mathe_LK
-Mosaicplot_Prog<-mosaic(~Studienfach+Skala_p+Mathe_LK,data=Daten,highlighting = 'Mathe_LK', highlighting_fill=c('#FAFAD2','#DCDCDC'))
+Mosaicplot_Prog<-F(Daten$Studienfach,Daten$Skala_p,Daten$Mathe_LK)
 
 #########Studienfach  &  Interesse_Prog###############
 #####Test zwischen Studienfach  &  Interesse_Prog
