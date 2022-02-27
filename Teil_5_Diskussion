@@ -1,7 +1,8 @@
-##Teil4
+### Diskussion Teil5
+### Aller Mitglieder
 
-#####Li JInzhen & Jing Xinyi
-
+## Wir vergleichen den Inhalt von Teil IV mit dem von Teil I und diskutieren,
+## ob wir die Beziehungen zwischen den verschiedenen Variablen richtig analysiert haben.
 
 library(dplyr)
 library(ggplot2)
@@ -9,8 +10,6 @@ library(DescTools)
 library(hrbrthemes)
 library(viridis)
 library(vcd)
-
-
 
 #Fuer die ganze Daten
 Daten <- read.csv("~/GitHub/wissArbeiten_2122_Gruppe_11/Daten.csv")
@@ -47,7 +46,8 @@ Alter_st <- Daten$Alter[Daten$Studienfach=="Statistik"]
 Alter_ds <- Daten$Alter[Daten$Studienfach=="Data Science"]
 Alter_ma <- Daten$Alter[Daten$Studienfach=="Mathe"]
 Alter_Info <- Daten$Alter[Daten$Studienfach=="Informatik"]
-
+#35 Personen studieren Statistik. 35 Personen studieren Data Science.
+#20 Personen studieren Mathe.  10 Personen studieren Informatik.
 
 A(Daten$Alter)
 #antwort
@@ -81,7 +81,7 @@ boxplot( Alter,border = "red")
 ###Boxplot und Plot zwischen Alter & Studienfach ###
 
 Daten%>%
-  ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
+ggplot( aes(x = Studienfach, y = Alter,  fill = Studienfach)) +
   geom_boxplot() +
   xlab("Studienfach")+
   scale_fill_viridis(discrete = TRUE,option = "E" ,alpha=0.6) +
@@ -95,6 +95,18 @@ Daten%>%
 #Das erste Quartil, der Median und das dritte Quartil liegen alle sehr nahe beieinander.
 # Also anhand des Boxplots vermute ich, dass sich Alter und Studienfach nicht gegenseitig beeinflussen.
 
+########### Normalvrteilung
+shapiro.test(Alter) 
+#Shapiro-Wilk normality test
+#data:  Alter
+#W = 0.96686, p-value = 0.01279
+#Die W-Statistik liegt nahe bei 1 und der p-Wert ist signifikant größer als 0,05, 
+#so dass nicht ausgeschlossen werden kann, dass es sich um eine Normalverteilung handelt.
+qqnorm(Alter)
+qqline(Alter)
+#Hier kann man sehen, dass die Alter einer Normalverteilung entspricht.
+
+
 #b)Studienfach
 ##Anzahl rechnen
 B <- function(x){
@@ -102,7 +114,7 @@ B <- function(x){
   sum <- table(x)
   h <- prop.table(table(x))
   return(c(Art=a,Anzahl=sum,haeufig=h))
-}
+  }
 B(Studienfach)
 #Anzahl.Data Science    Anzahl.Informatik 
 #               35.00                10.00 
@@ -146,7 +158,7 @@ ggplot(data = Daten,aes(x =Mathe_LK ,fill=Mathe_LK))+
 #d)Interesse_Math 
 #Unterteilen Sie das Interesse in drei Stufen: niedrig, mittel und hoch
 intern <- function(x) min(x):max(x)
-E <- function(x){
+E<- function(x){
   Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
@@ -169,7 +181,7 @@ ggplot(data = Daten,aes(x=Skala_m,fill=Studienfach))+
   ggtitle("Balkondiagramm des Interesses an der Mathe") +
   theme_ipsum()
 
-##e)Interesse_Prog
+e)Interesse_Prog
 Daten$Skala_p <- E(Daten$Interesse_Prog)
 #Diese Grafik zeigt, wie viele Studenten verschiedener studienfaecher sich für das Programmieren von hoch nach niedrig interessieren.
 ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
@@ -177,7 +189,7 @@ ggplot(data = Daten,aes(x=Skala_p,fill=Studienfach))+
   theme(axis.title.x=element_blank())+
   ylab("Anzahl")+
   xlab("Interesse Stufe")+
-  scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
+scale_fill_viridis(discrete = T,alpha=0.6,option = "E") +
   ggtitle("Balkondiagramm des Interesse an der Programmierung") +
   theme_ipsum()
 
@@ -298,9 +310,6 @@ D <- function(x, y){
   cor.test(x, y, method=c("pearson"))
 }
 #####Test zwischen  Alter  &  Mathe_LK
-Daten$Mathe_LK[Daten$Mathe_LK=="nein"] <-0
-Daten$Mathe_LK[Daten$Mathe_LK=="ja"] <- 1
-Daten$Mathe_LK <- as.numeric(Daten$Mathe_LK)
 D(Alter,Mathe_LK)
 #Pearson's product-moment correlation
 
@@ -316,4 +325,3 @@ D(Alter,Mathe_LK)
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
 #Der Korrelationskoeffizient betraegt 0.06925505.
-
