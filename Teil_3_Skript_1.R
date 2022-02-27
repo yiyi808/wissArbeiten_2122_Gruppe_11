@@ -37,7 +37,7 @@ D <- function(x, y){
 #e)
 ###Interne Funktionen
 intern <- function(x) min(x):max(x)
-f5 <- function(x){
+E <- function(x){
   Q <- quantile(intern(x), probs = c(1/3, 2/3), na.rm = TRUE)
   # Klasseneinteilung
   k<- numeric(length(x))
