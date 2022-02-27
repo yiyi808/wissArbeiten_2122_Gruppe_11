@@ -1,6 +1,13 @@
-# wissArbeiten_2122_Gruppe_11
 Gruppenarbeit (3. Teilleistung) für die Veranstaltung wissenschaftliches Arbeiten an der TU Dortmund
 
-Dieses Branch enthaelt RSkripts für Daten und verwendete Funktionen .
+Gruppenmitglieder: Haiyi Rong & Jinzhen Li & Xinyi Jing & Yi Sun
 
-Es wurde von die ganze Gruppe erstellt.
+Dieses Repository enthaelt RSkripts.
+
+Teil 1&2 : Haiyi Rong & Yi Sun
+
+Teil 3 : Alle Gruppenmitglieder
+
+Teil 4 : Jinzhen Li & Xinyi Jing
+
+Teil 5 : Alle Gruppenmitglieder
