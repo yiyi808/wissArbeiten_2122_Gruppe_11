@@ -316,3 +316,4 @@ D(Alter,Mathe_LK)
 #gibt es keinen signifikanten Zusammenhang zwischen Alter und Mathe_LK, 
 #Der Korrelationskoeffizient zwischen ihnen ist sehr gering. 
 #Der Korrelationskoeffizient betraegt 0.06925505.
+
