@@ -13,6 +13,19 @@ Der Level des Interesses an Mathematik wird in drei Stufen unterteilt: hoch, mit
 3）Interest an Programmierung
 Analog zu 2）Interest an Mathematik.
 
-4) Mathe_Lk
+4) Mathe_LK
+a）die Zusammenhang zwischen drei Variablen(Mathe_LK, Studienfach und Interest an Mathematik )
 Die Zusammenhänge zwischen den drei Variablen lassen sich anhand des Mosaikdiagramms deutlich erkennen.
 Das Mosaicdiagramm zeigt, dass es einen Teil des gelben Bereichs gibt, der eine große Fläche einnimmt, was bedeutet, dass Menschen, die Mathematik studieren und ein größeres Interesse an Mathematik haben, Mathematikunterricht nehmen.
+
+* Beim Mosaikdiagramm stellen wir fest, dass die Daten hier einen Fehler gefunden.
+Im Teil 1 Möchten wir： 
+#    Die meisten Studenten, die ein kleines Interesse an Mathematik haben und Informatik studieren, 
+#    in der Schule Mathe-LK nicht hatten.
+#    D.h. Es ist sehr wahrscheinlich, dass die Werte ihres Interesses_Mathe 1, 2 und 3 sind.
+Aber wir haben es falsch gemacht; in den Daten hatte die Mehrheit der Schüler mit geringem Interesse an Mathematik und einem Informatikstudium einen Mathe-LK in der Schule.
+
+b）die Zusammenhang zwischen vier Variablen(Mathe_LK, Studienfach, Interest an Mathematik und Interest an Programmierung)
+Fehlt.
+
+
