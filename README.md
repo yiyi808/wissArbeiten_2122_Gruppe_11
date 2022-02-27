@@ -1,6 +1,6 @@
 Gruppenarbeit (3. Teilleistung) für die Veranstaltung wissenschaftliches Arbeiten an der TU Dortmund
 
-Gruppenmitglieder: Haiyi Rong & Jinzhen Li & Xinyi Jing & Yi Sun
+Gruppenmitglieder: Haiyi Rong(Haiyi11) & Jinzhen Li & Xinyi Jing & Yi Sun
 
 Dieses Repository enthaelt RSkripts.
 
