@@ -70,7 +70,7 @@ df$Interesse_Prog[df$Studienfach == c("Mathe")] <- sample(IM, length(df$Interess
 df$Interesse_Prog[df$Studienfach == c("Statistik")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Statistik")]), prob = c(0.05, 0.1, 0.2, 0.9, 0.8, 0.5, 0.4), replace=TRUE)
 
 # c) Studienfach Data Science:
-# Die meisten Menschen, die Data Science studieren, haben ein relativ großes Interesse an Programmierung. (Mehr als Statistik)
+# Die meisten Menschen, die Data Science studieren, haben ein relativ großes Interesse an Programmierung. 
 # Also setzen wir die Wahrscheinlichkeit für der Wert 1:7 als 0.05, 0.1, 0.2, 0.9, 0.8, 0.6 und 0.5.
 df$Interesse_Prog[df$Studienfach == c("Data Science")] <- sample(IM, length(df$Interesse_Prog[df$Studienfach == c("Data Science")]), prob = c(0.05, 0.1, 0.2, 0.9, 0.8, 0.6, 0.5), replace=TRUE)
 
