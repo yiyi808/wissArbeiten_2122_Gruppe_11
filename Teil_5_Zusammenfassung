@@ -25,7 +25,7 @@ Im Teil 1 Möchten wir：
 #    Die meisten Studenten, die ein kleines Interesse an Mathematik haben und Informatik studieren, 
 #    in der Schule Mathe-LK nicht hatten.
 #    D.h. Es ist sehr wahrscheinlich, dass die Werte ihres Interesses_Mathe 1, 2 und 3 sind.
-Aber wir haben es falsch gemacht; in den Daten hatte die Mehrheit der Schüler mit geringem Interesse an Mathematik und einem Informatikstudium einen Mathe-LK in der Schule.
+Aber wir haben es falsch gemacht; in den Daten hatte die Mehrheit der Studenten mit geringem Interesse an Mathematik und einem Informatikstudium einen Mathe-LK in der Schule.
 
  b）die Zusammenhang zwischen vier Variablen(Mathe_LK, Studienfach, Interest an Mathematik und Interest an Programmierung)
 Fehlt.
